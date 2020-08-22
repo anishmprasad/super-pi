@@ -2,9 +2,9 @@
 
 A pi based supercluster computer ( Distributed system )
 
-# Prerequeste
+# prerequisite
 
-- 3 x PRI 4 Model B 8GB
+- 3 x RPI 4 Model B 8GB
 - 3 x Samsung Evo plus
 - 1 x Network Switch
 - 1 x Cluster case
