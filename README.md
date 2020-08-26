@@ -9,7 +9,7 @@ A pi based supercluster computer ( Distributed system )
 - 1 x Network Switch
 - 1 x Cluster case
 - 4 x RJ 45 Category 6
-- 1 x mini HDMI to VGA or HDMI
+- 1 x mini HDMI to VGA / HDMI
 
 # Algorithm
 
