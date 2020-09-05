@@ -1,13 +1,13 @@
 # super-pi
 
-A pi based supercluster computer ( Distributed system )
+A Pi based supercluster computer ( Distributed system )
 
-# prerequisite
+# Prerequisite
 
 - 3 x RPI 4 Model B 8GB
 - 3 x Samsung Evo plus
 - 1 x Network Switch
-- 1 x Cluster case
+- 1 x 6 Node Cluster case
 - 4 x RJ 45 Category 6
 - 1 x mini HDMI to VGA or HDMI
 
