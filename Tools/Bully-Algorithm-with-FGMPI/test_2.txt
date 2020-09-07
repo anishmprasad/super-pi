@@ -1,0 +1,33 @@
+A complete test with 3 nodes, and with SENDFAILURE = 80.
+Expect: The coordinator should enter a dead mode if its Survival rate < SENDFAILURE.
+				A LEADERDEAD will be detected by the workers, and eletions will be called after.
+				After 30 second, the coordinator will return a live and the next round AYA-IAA probing starts.
+Result: SUCCEED!
+
+Non-Debug Mode Print:
+[ DLC: 0 ]  [ LEADER ] [ Node: 3 ] declares itself as the coordinator! [ Elapsed Time: 0.697288s ]
+[ DLC: 6 ]  [ DEAD ]  [ Node: 3 ] enters a sudo-dead mode! [ Elapsed Time: 8.697920s ]
+[ DLC: 8 ]  [ LEADERDEAD ] [ Node: 2 ] detects coordinator failure! [ Elapsed Time: 19.698725s ]
+[ DLC: 8 ]  [ ELECTION ]   [ Node: 2 ] calls an election! [ Coord: 3 ] [ Elapsed Time: 19.698740s ]
+[ DLC: 7 ]  [ LEADERDEAD ] [ Node: 1 ] detects coordinator failure! [ Elapsed Time: 20.698812s ]
+[ DLC: 7 ]  [ ELECTION ]   [ Node: 1 ] calls an election! [ Coord: 3 ] [ Elapsed Time: 20.698822s ]
+[ DLC: 10 ]  [ LEADER ] [ Node: 2 ] declares itself as the coordinator! [ Elapsed Time: 34.699934s ]
+[ DLC: 9 ]  [ ALIVE ]     [ Node: 3 ] ex-coordinator declares its return to alive! [ Elapsed Time: 37.700199s ]
+[ DLC: 9 ]  [ LEADER ] [ Node: 3 ] declares itself as the coordinator! [ Elapsed Time: 37.700212s ]
+[ DLC: 12 ]  [ DEAD ]  [ Node: 3 ] enters a sudo-dead mode! [ Elapsed Time: 42.700611s ]
+[ DLC: 14 ]  [ LEADERDEAD ] [ Node: 1 ] detects coordinator failure! [ Elapsed Time: 53.701437s ]
+[ DLC: 14 ]  [ ELECTION ]   [ Node: 1 ] calls an election! [ Coord: 3 ] [ Elapsed Time: 53.701450s ]
+[ DLC: 14 ]  [ LEADERDEAD ] [ Node: 2 ] detects coordinator failure! [ Elapsed Time: 53.701466s ]
+[ DLC: 14 ]  [ ELECTION ]   [ Node: 2 ] calls an election! [ Coord: 3 ] [ Elapsed Time: 53.701468s ]
+[ DLC: 17 ]  [ LEADER ] [ Node: 2 ] declares itself as the coordinator! [ Elapsed Time: 67.702501s ]
+[ DLC: 19 ]  [ DEAD ]  [ Node: 2 ] enters a sudo-dead mode! [ Elapsed Time: 72.702872s ]
+[ DLC: 15 ]  [ ALIVE ]     [ Node: 3 ] ex-coordinator declares its return to alive! [ Elapsed Time: 72.702889s ]
+[ DLC: 15 ]  [ LEADER ] [ Node: 3 ] declares itself as the coordinator! [ Elapsed Time: 72.702892s ]
+[ DLC: 20 ]  [ DEAD ]  [ Node: 3 ] enters a sudo-dead mode! [ Elapsed Time: 77.703295s ]
+[ DLC: 22 ]  [ LEADERDEAD ] [ Node: 1 ] detects coordinator failure! [ Elapsed Time: 88.704153s ]
+[ DLC: 22 ]  [ ELECTION ]   [ Node: 1 ] calls an election! [ Coord: 3 ] [ Elapsed Time: 88.704167s ]
+[ DLC: 24 ]  [ ALIVE ]     [ Node: 2 ] ex-coordinator declares its return to alive! [ Elapsed Time: 101.705134s ]
+[ DLC: 24 ]  [ ELECTION ]  [ Node: 2 ] calls an election! [ Coord: 2 ] [ Elapsed Time: 101.705147s ]
+[ DLC: 24 ]  [ LEADER ] [ Node: 1 ] declares itself as the coordinator! [ Elapsed Time: 102.705217s ]
+[ DLC: 25 ]  [ ALIVE ]     [ Node: 3 ] ex-coordinator declares its return to alive! [ Elapsed Time: 107.705621s ]
+[ DLC: 25 ]  [ LEADER ] [ Node: 3 ] declares itself as the coordinator! [ Elapsed Time: 107.705634s ]
