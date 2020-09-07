@@ -16,6 +16,12 @@ A Pi based supercluster computer ( Distributed system )
 - The Bully Algorithm
 - The Ring Algorithm
 
+# Algorithm Reference
+
+- https://github.com/ZacharyMcGee/mpi-bully-algorithm
+
+- https://www.meccanismocomplesso.org/en/clusters-and-parallel-programming-with-mpi-and-raspberry-pi/
+
 # Reference
 
 https://magpi.raspberrypi.org/articles/build-a-raspberry-pi-cluster-computer
@@ -35,6 +41,10 @@ https://www.geeksforgeeks.org/election-algorithm-and-distributed-processing/
 https://www.ukessays.com/essays/information-technology/comparisons-with-the-bully-algorithm-information-technology-essay.php
 
 https://www.ques10.com/p/19537/compare-bully-election-algorithm-with-ring-algor-1/
+
+# Sleep ubuntu
+
+https://askubuntu.com/questions/47311/how-do-i-disable-my-system-from-going-to-sleep
 
 # Licence
 
