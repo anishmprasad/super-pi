@@ -6,6 +6,7 @@ A Pi based supercluster computer ( Distributed system )
 
 - 3 x RPI 4 Model B 8GB
 - 3 x Samsung Evo plus
+- 3 x Type C Cable
 - 1 x Network Switch
 - 1 x 6 Node Cluster case
 - 4 x RJ 45 Category 6
