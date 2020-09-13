@@ -1,1 +1,2 @@
-simplebully: simplebully.c mpic++ -o simplebully simplebully.c
+simplebully: simplebully.c 
+	mpic++ -o simplebully simplebully.c
