@@ -47,6 +47,14 @@ A Pi based supercluster computer ( Distributed system )
 
 - https://askubuntu.com/questions/47311/how-do-i-disable-my-system-from-going-to-sleep
 
+- sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+# Steps
+
+- ssh-keygen -R 192.168.0.16
+- ssh ubuntu@192.168.0.16
+- vim /Users/{username / ghost}/.ssh/known_hosts
+
 # Licence
 
 Apache - 2.0
