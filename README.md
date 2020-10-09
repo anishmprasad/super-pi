@@ -1,6 +1,6 @@
 # super-pi
 
-A Pi based supercluster computer ( Distributed system )
+A Pi based super-powered cluster computer ( Distributed system )
 
 # Prerequisite
 
