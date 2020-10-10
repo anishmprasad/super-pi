@@ -58,6 +58,7 @@ A Pi based super-powered cluster computer ( Distributed system )
 # Utils
 
 - arp -a // to get all ip address in the network
+https://www.nagafm.com/2020/07/02/how-to-create-ssh-alias-in-linux/
 
 # Licence
 
