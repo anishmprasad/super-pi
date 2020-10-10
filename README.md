@@ -55,6 +55,10 @@ A Pi based super-powered cluster computer ( Distributed system )
 - ssh ubuntu@192.168.0.16
 - vim /Users/{username / ghost}/.ssh/known_hosts
 
+# Utils
+
+- arp -a // to get all ip address in the network
+
 # Licence
 
 Apache - 2.0
