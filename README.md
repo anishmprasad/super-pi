@@ -43,6 +43,10 @@ A Pi based super-powered cluster computer ( Distributed system )
 
 - https://www.ques10.com/p/19537/compare-bully-election-algorithm-with-ring-algor-1/
 
+- https://linuxhint.com/setup_hostname_ubuntu_2004/
+
+- https://superuser.com/questions/185678/connect-to-linux-by-name-rather-than-ip
+
 # Sleep ubuntu
 
 - https://askubuntu.com/questions/47311/how-do-i-disable-my-system-from-going-to-sleep
