@@ -65,6 +65,18 @@ A Pi based super-powered cluster computer ( Distributed system )
 - htop // An interactive system-monitor process-viewer and process-manage
 - https://www.nagafm.com/2020/07/02/how-to-create-ssh-alias-in-linux/
 
+# Steps
+
+## Machine 1 ( 01 )
+
+- sudo apt-get install gfortran
+
+
+## Machine 1 ( 01 )
+
+
+## Machine 1 ( 01 )
+
 # Licence
 
 Apache - 2.0
