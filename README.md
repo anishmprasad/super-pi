@@ -62,6 +62,7 @@ A Pi based super-powered cluster computer ( Distributed system )
 # Utils
 
 - arp -a // to get all ip address in the network
+- htop // An interactive system-monitor process-viewer and process-manage
 - https://www.nagafm.com/2020/07/02/how-to-create-ssh-alias-in-linux/
 
 # Licence
