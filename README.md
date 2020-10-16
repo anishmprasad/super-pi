@@ -72,10 +72,10 @@ A Pi based super-powered cluster computer ( Distributed system )
 - sudo apt-get install gfortran
 
 
-## Machine 1 ( 01 )
+## Machine 2 ( 02 )
 
 
-## Machine 1 ( 01 )
+## Machine 3 ( 03 )
 
 # Licence
 
