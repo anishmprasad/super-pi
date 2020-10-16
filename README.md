@@ -51,18 +51,18 @@ A Pi based super-powered cluster computer ( Distributed system )
 
 - https://askubuntu.com/questions/47311/how-do-i-disable-my-system-from-going-to-sleep
 
-- sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+- `sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target`
 
 # Steps
 
-- ssh-keygen -R 192.168.0.16
-- ssh ubuntu@192.168.0.16
-- vim /Users/{username / ghost}/.ssh/known_hosts
+- `ssh-keygen -R 192.168.0.16`
+- `ssh ubuntu@192.168.0.16`
+- `vim /Users/{username / ghost}/.ssh/known_hosts`
 
 # Utils
 
-- arp -a // to get all ip address in the network
-- htop // An interactive system-monitor process-viewer and process-manage
+- `arp -a` // to get all ip address in the network
+- `htop` // An interactive system-monitor process-viewer and process-manage
 - https://www.nagafm.com/2020/07/02/how-to-create-ssh-alias-in-linux/
 
 # Steps
