@@ -75,11 +75,15 @@ A Pi based super-powered cluster computer ( Distributed system )
 - sudo apt-get install gfortran
 - cd tools && tar -xzf openmpi-4.0.5.tar.gz && cd openmpi-4.0.5 && ./configure
 
-
 ## Machine 2 ( 02 )
 
+- sudo apt-get install gfortran
+- cd tools && tar -xzf openmpi-4.0.5.tar.gz && cd openmpi-4.0.5 && ./configure
 
 ## Machine 3 ( 03 )
+
+- sudo apt-get install gfortran
+- cd tools && tar -xzf openmpi-4.0.5.tar.gz && cd openmpi-4.0.5 && ./configure
 
 # Licence
 
