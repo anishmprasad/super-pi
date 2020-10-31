@@ -17,6 +17,6 @@ pkgincludedir=${includedir}/openmpi
 # dependencies), so only list these in Libs.private.
 #
 Libs: -L${libdir}     -lmpi
-Libs.private: -lopen-rte -lopen-pal -lm  -lz
+Libs.private: -lopen-rte -lopen-pal -lhwloc -levent_core -levent_pthreads  -lz
 #
 Cflags: -I${includedir}      

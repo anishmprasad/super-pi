@@ -141,7 +141,7 @@ CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2 -Wall -fno-strict-aliasing -Wno-deprecated-declarations -D_THREAD_SAFE 
 CPP = gcc -E
-CPPFLAGS = -I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5 -I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5 -I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5/opal/include -I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5/opal/mca/hwloc/hwloc201/hwloc/include   -Drandom=opal_random
+CPPFLAGS =    
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps

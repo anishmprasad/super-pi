@@ -509,10 +509,10 @@
 #define PMIX_CC "gcc"
 
 /* Capture the configure cmd line */
-#define PMIX_CONFIGURE_CLI " \'--disable-debug\' \'--with-pmix-symbol-rename=OPAL_MCA_PMIX3X_\' \'--enable-embedded-mode\' \'--disable-pmix-timing\' \'--without-tests-examples\' \'--disable-pmix-binaries\' \'--disable-pmix-backward-compatibility\' \'--disable-visibility\' \'--enable-embedded-libevent\' '--with-libevent-header=\"opal/mca/event/libevent2022/libevent2022.h\"' \'--enable-embedded-hwloc\' '--with-hwloc-header=\"opal/mca/hwloc/hwloc201/hwloc201.h\"' \'CFLAGS=-O3 -DNDEBUG  \' \'CPPFLAGS=-I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5 -I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5 -I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5/opal/include -I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5/opal/include -I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5/opal/mca/event/libevent2022/libevent -I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5/opal/mca/event/libevent2022/libevent/include -I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5/opal/mca/hwloc/hwloc201/hwloc/include  \' \'--cache-file=/dev/null\' \'--srcdir=.\' \'--disable-option-checking\'"
+#define PMIX_CONFIGURE_CLI " \'--disable-debug\' \'--with-pmix-symbol-rename=OPAL_MCA_PMIX3X_\' \'--enable-embedded-mode\' \'--disable-pmix-timing\' \'--without-tests-examples\' \'--disable-pmix-binaries\' \'--disable-pmix-backward-compatibility\' \'--disable-visibility\' \'--enable-embedded-libevent\' '--with-libevent-header=\"opal/mca/event/external/external.h\"' \'--enable-embedded-hwloc\' '--with-hwloc-header=\"opal/mca/hwloc/external/external.h\"' \'CFLAGS=-O3 -DNDEBUG  \' \'CPPFLAGS=-I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5 -I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5 -I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5/opal/include -I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5/opal/include    \' \'--cache-file=/dev/null\' \'--srcdir=.\' \'--disable-option-checking\'"
 
 /* Date when PMIx was built */
-#define PMIX_CONFIGURE_DATE "2020-09-13T15:01:04"
+#define PMIX_CONFIGURE_DATE "2020-10-28T22:01:41"
 
 /* Hostname where PMIx was built */
 #define PMIX_CONFIGURE_HOST "Ghosts-MacBook-Pro.local"
@@ -563,10 +563,10 @@
 #define PMIX_ENABLE_TIMING 0
 
 /* Location of event2/thread.h */
-#define PMIX_EVENT2_THREAD_HEADER "opal/mca/event/libevent2022/libevent2022.h"
+#define PMIX_EVENT2_THREAD_HEADER "opal/mca/event/external/external.h"
 
 /* Location of event.h */
-#define PMIX_EVENT_HEADER "opal/mca/event/libevent2022/libevent2022.h"
+#define PMIX_EVENT_HEADER "opal/mca/event/external/external.h"
 
 /* Whether or not we have apple */
 #define PMIX_HAVE_APPLE 1
@@ -725,7 +725,7 @@
 #define PMIX_HAVE_ZLIB 1
 
 /* Location of hwloc.h */
-#define PMIX_HWLOC_HEADER "opal/mca/hwloc/hwloc201/hwloc201.h"
+#define PMIX_HWLOC_HEADER "opal/mca/hwloc/external/external.h"
 
 /* ident string for PMIX */
 #define PMIX_IDENT_STRING ""

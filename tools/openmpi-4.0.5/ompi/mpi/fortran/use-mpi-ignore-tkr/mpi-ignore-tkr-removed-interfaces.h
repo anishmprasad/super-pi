@@ -20,8 +20,8 @@
 interface MPI_Address
 
 subroutine MPI_Address(location, address, ierror)
-   location
-  , intent(in) :: location
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: location
+  type(*), dimension(*), intent(in) :: location
   integer, intent(out) :: address
   integer, intent(out) :: ierror
 end subroutine MPI_Address
@@ -31,8 +31,8 @@ end interface
 interface PMPI_Address
 
 subroutine PMPI_Address(location, address, ierror)
-   location
-  , intent(in) :: location
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: location
+  type(*), dimension(*), intent(in) :: location
   integer, intent(out) :: address
   integer, intent(out) :: ierror
 end subroutine PMPI_Address

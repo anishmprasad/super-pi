@@ -16,6 +16,6 @@ pkgincludedir=${includedir}/openmpi
 # static linking (they're pulled in by libopen-rte.so's implicit
 # dependencies), so only list these in Libs.private.
 #
-Libs: -L${libdir}      -lmpi_mpifh -lmpi
-Libs.private: -lopen-rte -lopen-pal -lm  -lz
-Cflags: -I${includedir}      
+Libs: -L${libdir}    -lmpi_usempif08 -lmpi_usempi_ignore_tkr -lmpi_mpifh -lmpi
+Libs.private: -lopen-rte -lopen-pal -lhwloc -levent_core -levent_pthreads  -lz
+Cflags: -I${includedir}     -Wl,-flat_namespace -Wl,-commons,use_dylibs  -I${libdir}

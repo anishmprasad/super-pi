@@ -40,10 +40,10 @@
 !
       integer MPI_OFFSET_KIND, MPI_ADDRESS_KIND, MPI_INTEGER_KIND
       integer MPI_COUNT_KIND
-      parameter (MPI_INTEGER_KIND=)
-      parameter (MPI_ADDRESS_KIND=)
-      parameter (MPI_OFFSET_KIND=)
-      parameter (MPI_COUNT_KIND=)
+      parameter (MPI_INTEGER_KIND=4)
+      parameter (MPI_ADDRESS_KIND=8)
+      parameter (MPI_OFFSET_KIND=8)
+      parameter (MPI_COUNT_KIND=8)
 !
 !     Miscellaneous constants
 !

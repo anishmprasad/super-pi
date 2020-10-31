@@ -223,7 +223,7 @@ CC = $(TEST_CC)
 CCDEPMODE = depmode=gcc3
 CFLAGS = -O3 -DNDEBUG -finline-functions -fno-strict-aliasing  -D__EXTENSIONS__ -DHAVE_ROMIOCONF_H  -I$(top_builddir)/include
 CPP = gcc -E
-CPPFLAGS = -I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5/opal/mca/event/libevent2022/libevent -I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5/opal/mca/event/libevent2022/libevent/include -I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5/opal/mca/hwloc/hwloc201/hwloc/include  
+CPPFLAGS =    
 CYGPATH_W = echo
 DEFINE_HAVE_MPI_GREQUEST = #define HAVE_MPI_GREQUEST 1
 DEFINE_HAVE_MPI_GREQUEST_EXTENSIONS = #undef HAVE_MPI_GREQUEST_EXTENSIONS
@@ -267,7 +267,7 @@ INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LD = /Library/Developer/CommandLineTools/usr/bin/ld
-LDFLAGS =  
+LDFLAGS =  -Wl,-flat_namespace   
 LIBNAME = /Users/ghost/Documents/super-pi/tools/openmpi-4.0.5/ompi/mca/io/romio321/romio/lib/libmpio.a
 LIBOBJS = 
 LIBS = 

@@ -16,7 +16,7 @@ pkgincludedir=${includedir}/openmpi
 # list them in Libs.private.
 #
 Libs: -L${libdir}    -lopen-pal
-Libs.private: -lm 
+Libs.private: -lhwloc -levent_core -levent_pthreads 
 #
 # It is safe to hard-wire the -I before the EXTRA_INCLUDES because we
 # will not be installing this .pc file unless --enable-devel-headers is

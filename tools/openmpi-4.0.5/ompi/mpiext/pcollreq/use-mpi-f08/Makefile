@@ -111,7 +111,7 @@ target_triplet = x86_64-apple-darwin19.6.0
 
 # If we are, build the convenience libtool library that will be
 # slurped up into libmpi_usempif08.la.
-#am__append_1 = libmpiext_pcollreq_usempif08.la
+am__append_1 = libmpiext_pcollreq_usempif08.la
 subdir = ompi/mpiext/pcollreq/use-mpi-f08
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/config/c_get_alignment.m4 \
@@ -453,61 +453,61 @@ am__libmpiext_pcollreq_usempif08_la_SOURCES_DIST =  \
 	profile/pneighbor_alltoall_init_f08.F90 \
 	profile/pneighbor_alltoallv_init_f08.F90 \
 	profile/pneighbor_alltoallw_init_f08.F90
-#am__objects_1 = allgather_init_f08.lo \
-#	allgatherv_init_f08.lo \
-#	allreduce_init_f08.lo \
-#	alltoall_init_f08.lo \
-#	alltoallv_init_f08.lo \
-#	alltoallw_init_f08.lo \
-#	barrier_init_f08.lo \
-#	bcast_init_f08.lo \
-#	exscan_init_f08.lo \
-#	gather_init_f08.lo \
-#	gatherv_init_f08.lo \
-#	reduce_init_f08.lo \
-#	reduce_scatter_block_init_f08.lo \
-#	reduce_scatter_init_f08.lo \
-#	scan_init_f08.lo \
-#	scatter_init_f08.lo \
-#	scatterv_init_f08.lo \
-#	neighbor_allgather_init_f08.lo \
-#	neighbor_allgatherv_init_f08.lo \
-#	neighbor_alltoall_init_f08.lo \
-#	neighbor_alltoallv_init_f08.lo \
-#	neighbor_alltoallw_init_f08.lo
+am__objects_1 = allgather_init_f08.lo \
+	allgatherv_init_f08.lo \
+	allreduce_init_f08.lo \
+	alltoall_init_f08.lo \
+	alltoallv_init_f08.lo \
+	alltoallw_init_f08.lo \
+	barrier_init_f08.lo \
+	bcast_init_f08.lo \
+	exscan_init_f08.lo \
+	gather_init_f08.lo \
+	gatherv_init_f08.lo \
+	reduce_init_f08.lo \
+	reduce_scatter_block_init_f08.lo \
+	reduce_scatter_init_f08.lo \
+	scan_init_f08.lo \
+	scatter_init_f08.lo \
+	scatterv_init_f08.lo \
+	neighbor_allgather_init_f08.lo \
+	neighbor_allgatherv_init_f08.lo \
+	neighbor_alltoall_init_f08.lo \
+	neighbor_alltoallv_init_f08.lo \
+	neighbor_alltoallw_init_f08.lo
 am__dirstamp = $(am__leading_dot)dirstamp
-#am__objects_2 = profile/pallgather_init_f08.lo \
-#	profile/pallgatherv_init_f08.lo \
-#	profile/pallreduce_init_f08.lo \
-#	profile/palltoall_init_f08.lo \
-#	profile/palltoallv_init_f08.lo \
-#	profile/palltoallw_init_f08.lo \
-#	profile/pbarrier_init_f08.lo \
-#	profile/pbcast_init_f08.lo \
-#	profile/pexscan_init_f08.lo \
-#	profile/pgather_init_f08.lo \
-#	profile/pgatherv_init_f08.lo \
-#	profile/preduce_init_f08.lo \
-#	profile/preduce_scatter_block_init_f08.lo \
-#	profile/preduce_scatter_init_f08.lo \
-#	profile/pscan_init_f08.lo \
-#	profile/pscatter_init_f08.lo \
-#	profile/pscatterv_init_f08.lo \
-#	profile/pneighbor_allgather_init_f08.lo \
-#	profile/pneighbor_allgatherv_init_f08.lo \
-#	profile/pneighbor_alltoall_init_f08.lo \
-#	profile/pneighbor_alltoallv_init_f08.lo \
-#	profile/pneighbor_alltoallw_init_f08.lo
-#am_libmpiext_pcollreq_usempif08_la_OBJECTS = mpiext_pcollreq_f08.lo \
-#	$(am__objects_1) \
-#	$(am__objects_2)
+am__objects_2 = profile/pallgather_init_f08.lo \
+	profile/pallgatherv_init_f08.lo \
+	profile/pallreduce_init_f08.lo \
+	profile/palltoall_init_f08.lo \
+	profile/palltoallv_init_f08.lo \
+	profile/palltoallw_init_f08.lo \
+	profile/pbarrier_init_f08.lo \
+	profile/pbcast_init_f08.lo \
+	profile/pexscan_init_f08.lo \
+	profile/pgather_init_f08.lo \
+	profile/pgatherv_init_f08.lo \
+	profile/preduce_init_f08.lo \
+	profile/preduce_scatter_block_init_f08.lo \
+	profile/preduce_scatter_init_f08.lo \
+	profile/pscan_init_f08.lo \
+	profile/pscatter_init_f08.lo \
+	profile/pscatterv_init_f08.lo \
+	profile/pneighbor_allgather_init_f08.lo \
+	profile/pneighbor_allgatherv_init_f08.lo \
+	profile/pneighbor_alltoall_init_f08.lo \
+	profile/pneighbor_alltoallv_init_f08.lo \
+	profile/pneighbor_alltoallw_init_f08.lo
+am_libmpiext_pcollreq_usempif08_la_OBJECTS = mpiext_pcollreq_f08.lo \
+	$(am__objects_1) \
+	$(am__objects_2)
 libmpiext_pcollreq_usempif08_la_OBJECTS =  \
 	$(am_libmpiext_pcollreq_usempif08_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
 am__v_lt_0 = --silent
 am__v_lt_1 = 
-#am_libmpiext_pcollreq_usempif08_la_rpath =
+am_libmpiext_pcollreq_usempif08_la_rpath =
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -635,7 +635,7 @@ ECHO_N =
 ECHO_T = 
 EGREP = /usr/bin/grep -E
 EXEEXT = 
-FC = 
+FC = gfortran
 FCFLAGS = 
 FCFLAGS_f = 
 FCFLAGS_f90 = 
@@ -687,12 +687,12 @@ JAVAC =
 JAVADOC = 
 JAVAH = 
 LD = /Library/Developer/CommandLineTools/usr/bin/ld
-LDFLAGS =  
+LDFLAGS =  -Wl,-flat_namespace   
 LEX = flex
 LEXLIB = -ll
 LEX_OUTPUT_ROOT = lex.yy
 LIBOBJS = 
-LIBS =  -lz 
+LIBS =  -lz  -lhwloc  -levent_core -levent_pthreads
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = lipo
 LN_S = ln -s
@@ -888,16 +888,16 @@ MCA_opal_event_ALL_COMPONENTS =  external libevent2022
 MCA_opal_event_ALL_SUBDIRS =  mca/event/external mca/event/libevent2022
 MCA_opal_event_DSO_COMPONENTS = 
 MCA_opal_event_DSO_SUBDIRS = 
-MCA_opal_event_STATIC_COMPONENTS =  libevent2022
-MCA_opal_event_STATIC_LTLIBS = mca/event/libevent2022/libmca_event_libevent2022.la 
-MCA_opal_event_STATIC_SUBDIRS =  mca/event/libevent2022
+MCA_opal_event_STATIC_COMPONENTS =  external
+MCA_opal_event_STATIC_LTLIBS = mca/event/external/libmca_event_external.la 
+MCA_opal_event_STATIC_SUBDIRS =  mca/event/external
 MCA_opal_hwloc_ALL_COMPONENTS =  external hwloc201
 MCA_opal_hwloc_ALL_SUBDIRS =  mca/hwloc/external mca/hwloc/hwloc201
 MCA_opal_hwloc_DSO_COMPONENTS = 
 MCA_opal_hwloc_DSO_SUBDIRS = 
-MCA_opal_hwloc_STATIC_COMPONENTS =  hwloc201
-MCA_opal_hwloc_STATIC_LTLIBS = mca/hwloc/hwloc201/libmca_hwloc_hwloc201.la 
-MCA_opal_hwloc_STATIC_SUBDIRS =  mca/hwloc/hwloc201
+MCA_opal_hwloc_STATIC_COMPONENTS =  external
+MCA_opal_hwloc_STATIC_LTLIBS = mca/hwloc/external/libmca_hwloc_external.la 
+MCA_opal_hwloc_STATIC_SUBDIRS =  mca/hwloc/external
 MCA_opal_if_ALL_COMPONENTS =  bsdx_ipv4 bsdx_ipv6 linux_ipv6 posix_ipv4 solaris_ipv6
 MCA_opal_if_ALL_SUBDIRS =  mca/if/bsdx_ipv4 mca/if/bsdx_ipv6 mca/if/linux_ipv6 mca/if/posix_ipv4 mca/if/solaris_ipv6
 MCA_opal_if_DSO_COMPONENTS = 
@@ -1177,120 +1177,120 @@ NM = /usr/bin/nm -B
 NMEDIT = nmedit
 OBJDUMP = objdump
 OBJEXT = o
-OMPI_ALIGNMENT_FORTRAN_CHARACTER = 4
+OMPI_ALIGNMENT_FORTRAN_CHARACTER = 1
 OMPI_ALIGNMENT_FORTRAN_COMPLEX = 4
-OMPI_ALIGNMENT_FORTRAN_COMPLEX16 = 4
-OMPI_ALIGNMENT_FORTRAN_COMPLEX32 = 4
+OMPI_ALIGNMENT_FORTRAN_COMPLEX16 = 8
+OMPI_ALIGNMENT_FORTRAN_COMPLEX32 = 16
 OMPI_ALIGNMENT_FORTRAN_COMPLEX4 = 4
 OMPI_ALIGNMENT_FORTRAN_COMPLEX8 = 4
-OMPI_ALIGNMENT_FORTRAN_DOUBLE_COMPLEX = 4
-OMPI_ALIGNMENT_FORTRAN_DOUBLE_PRECISION = 4
+OMPI_ALIGNMENT_FORTRAN_DOUBLE_COMPLEX = 8
+OMPI_ALIGNMENT_FORTRAN_DOUBLE_PRECISION = 8
 OMPI_ALIGNMENT_FORTRAN_INTEGER = 4
-OMPI_ALIGNMENT_FORTRAN_INTEGER1 = 4
+OMPI_ALIGNMENT_FORTRAN_INTEGER1 = 1
 OMPI_ALIGNMENT_FORTRAN_INTEGER16 = 4
-OMPI_ALIGNMENT_FORTRAN_INTEGER2 = 4
+OMPI_ALIGNMENT_FORTRAN_INTEGER2 = 2
 OMPI_ALIGNMENT_FORTRAN_INTEGER4 = 4
-OMPI_ALIGNMENT_FORTRAN_INTEGER8 = 4
+OMPI_ALIGNMENT_FORTRAN_INTEGER8 = 8
 OMPI_ALIGNMENT_FORTRAN_LOGICAL = 4
-OMPI_ALIGNMENT_FORTRAN_LOGICAL1 = 4
-OMPI_ALIGNMENT_FORTRAN_LOGICAL2 = 4
+OMPI_ALIGNMENT_FORTRAN_LOGICAL1 = 1
+OMPI_ALIGNMENT_FORTRAN_LOGICAL2 = 2
 OMPI_ALIGNMENT_FORTRAN_LOGICAL4 = 4
-OMPI_ALIGNMENT_FORTRAN_LOGICAL8 = 4
+OMPI_ALIGNMENT_FORTRAN_LOGICAL8 = 8
 OMPI_ALIGNMENT_FORTRAN_REAL = 4
-OMPI_ALIGNMENT_FORTRAN_REAL16 = 4
+OMPI_ALIGNMENT_FORTRAN_REAL16 = 16
 OMPI_ALIGNMENT_FORTRAN_REAL2 = 4
 OMPI_ALIGNMENT_FORTRAN_REAL4 = 4
-OMPI_ALIGNMENT_FORTRAN_REAL8 = 4
+OMPI_ALIGNMENT_FORTRAN_REAL8 = 8
 OMPI_CONTRIB_DIST_SUBDIRS =  contrib/libompitrace
 OMPI_CONTRIB_SUBDIRS =  contrib/libompitrace
 OMPI_CXX_ABSOLUTE = /usr/bin/g++
 OMPI_ENABLE_GREQUEST_EXTENSIONS = 0
 OMPI_ENABLE_MPI1_COMPAT = 0
 OMPI_F08_SUFFIX = _f08
-OMPI_FC = none
-OMPI_FC_ABSOLUTE = none
-OMPI_FC_MODULE_FLAG = 
-OMPI_FORTRAN_BUILD_SIZEOF = 0
+OMPI_FC = gfortran
+OMPI_FC_ABSOLUTE = /usr/local/bin/gfortran
+OMPI_FC_MODULE_FLAG = -I
+OMPI_FORTRAN_BUILD_SIZEOF = 1
 OMPI_FORTRAN_CAPS = 0
-OMPI_FORTRAN_CKINDS = 
+OMPI_FORTRAN_CKINDS = 8 16 32
 OMPI_FORTRAN_DOUBLE_UNDERSCORE = 0
-OMPI_FORTRAN_EXTRA_SHARED_LIBRARY_FLAGS = 
+OMPI_FORTRAN_EXTRA_SHARED_LIBRARY_FLAGS = -static
 OMPI_FORTRAN_F08_PREDECL = !
-OMPI_FORTRAN_F08_TYPE = real
-OMPI_FORTRAN_HAVE_ABSTRACT = 0
-OMPI_FORTRAN_HAVE_ASYNCHRONOUS = 0
-OMPI_FORTRAN_HAVE_BIND_C = 0
-OMPI_FORTRAN_HAVE_C_FUNLOC = 0
-OMPI_FORTRAN_HAVE_INTERFACE = 0
-OMPI_FORTRAN_HAVE_ISO_C_BINDING = 0
-OMPI_FORTRAN_HAVE_ISO_FORTRAN_ENV = 0
-OMPI_FORTRAN_HAVE_PRIVATE = 0
-OMPI_FORTRAN_HAVE_PROCEDURE = 0
-OMPI_FORTRAN_HAVE_STORAGE_SIZE = 0
-OMPI_FORTRAN_HAVE_USE_ONLY = 0
-OMPI_FORTRAN_IGNORE_TKR_PREDECL = 
-OMPI_FORTRAN_IGNORE_TKR_TYPE = 
-OMPI_FORTRAN_IKINDS = 
-OMPI_FORTRAN_MAX_ARRAY_RANK = 0
-OMPI_FORTRAN_NEED_WRAPPER_ROUTINES = 0
+OMPI_FORTRAN_F08_TYPE = type(*), dimension(..)
+OMPI_FORTRAN_HAVE_ABSTRACT = 1
+OMPI_FORTRAN_HAVE_ASYNCHRONOUS = 1
+OMPI_FORTRAN_HAVE_BIND_C = 1
+OMPI_FORTRAN_HAVE_C_FUNLOC = 1
+OMPI_FORTRAN_HAVE_INTERFACE = 1
+OMPI_FORTRAN_HAVE_ISO_C_BINDING = 1
+OMPI_FORTRAN_HAVE_ISO_FORTRAN_ENV = 1
+OMPI_FORTRAN_HAVE_PRIVATE = 1
+OMPI_FORTRAN_HAVE_PROCEDURE = 1
+OMPI_FORTRAN_HAVE_STORAGE_SIZE = 1
+OMPI_FORTRAN_HAVE_USE_ONLY = 1
+OMPI_FORTRAN_IGNORE_TKR_PREDECL = !GCC$ ATTRIBUTES NO_ARG_CHECK ::
+OMPI_FORTRAN_IGNORE_TKR_TYPE = type(*), dimension(*)
+OMPI_FORTRAN_IKINDS = 1 2 4 8
+OMPI_FORTRAN_MAX_ARRAY_RANK = 15
+OMPI_FORTRAN_NEED_WRAPPER_ROUTINES = 1
 OMPI_FORTRAN_PLAIN = 0
-OMPI_FORTRAN_RKINDS = 
-OMPI_FORTRAN_SINGLE_UNDERSCORE = 0
+OMPI_FORTRAN_RKINDS = 4 8 16
+OMPI_FORTRAN_SINGLE_UNDERSCORE = 1
 OMPI_FORTRAN_STATUS_SIZE = 6
-OMPI_FORTRAN_USEMPIF08_LIB = 
-OMPI_FORTRAN_USEMPI_DIR = 
-OMPI_FORTRAN_USEMPI_LIB = 
+OMPI_FORTRAN_USEMPIF08_LIB = -lmpi_usempif08
+OMPI_FORTRAN_USEMPI_DIR = mpi/fortran/use-mpi-ignore-tkr
+OMPI_FORTRAN_USEMPI_LIB = -lmpi_usempi_ignore_tkr
 OMPI_F_SUFFIX = _f
 OMPI_GREEK_VERSION = 
-OMPI_HAVE_FORTRAN_CHARACTER = 0
-OMPI_HAVE_FORTRAN_COMPLEX = 0
-OMPI_HAVE_FORTRAN_COMPLEX16 = 0
-OMPI_HAVE_FORTRAN_COMPLEX32 = 0
+OMPI_HAVE_FORTRAN_CHARACTER = 1
+OMPI_HAVE_FORTRAN_COMPLEX = 1
+OMPI_HAVE_FORTRAN_COMPLEX16 = 1
+OMPI_HAVE_FORTRAN_COMPLEX32 = 1
 OMPI_HAVE_FORTRAN_COMPLEX4 = 0
-OMPI_HAVE_FORTRAN_COMPLEX8 = 0
-OMPI_HAVE_FORTRAN_DOUBLE_COMPLEX = 0
-OMPI_HAVE_FORTRAN_DOUBLE_PRECISION = 0
-OMPI_HAVE_FORTRAN_INTEGER = 0
-OMPI_HAVE_FORTRAN_INTEGER1 = 0
+OMPI_HAVE_FORTRAN_COMPLEX8 = 1
+OMPI_HAVE_FORTRAN_DOUBLE_COMPLEX = 1
+OMPI_HAVE_FORTRAN_DOUBLE_PRECISION = 1
+OMPI_HAVE_FORTRAN_INTEGER = 1
+OMPI_HAVE_FORTRAN_INTEGER1 = 1
 OMPI_HAVE_FORTRAN_INTEGER16 = 0
-OMPI_HAVE_FORTRAN_INTEGER2 = 0
-OMPI_HAVE_FORTRAN_INTEGER4 = 0
-OMPI_HAVE_FORTRAN_INTEGER8 = 0
-OMPI_HAVE_FORTRAN_LOGICAL = 0
-OMPI_HAVE_FORTRAN_LOGICAL1 = 0
-OMPI_HAVE_FORTRAN_LOGICAL2 = 0
-OMPI_HAVE_FORTRAN_LOGICAL4 = 0
-OMPI_HAVE_FORTRAN_LOGICAL8 = 0
-OMPI_HAVE_FORTRAN_REAL = 0
-OMPI_HAVE_FORTRAN_REAL16 = 0
+OMPI_HAVE_FORTRAN_INTEGER2 = 1
+OMPI_HAVE_FORTRAN_INTEGER4 = 1
+OMPI_HAVE_FORTRAN_INTEGER8 = 1
+OMPI_HAVE_FORTRAN_LOGICAL = 1
+OMPI_HAVE_FORTRAN_LOGICAL1 = 1
+OMPI_HAVE_FORTRAN_LOGICAL2 = 1
+OMPI_HAVE_FORTRAN_LOGICAL4 = 1
+OMPI_HAVE_FORTRAN_LOGICAL8 = 1
+OMPI_HAVE_FORTRAN_REAL = 1
+OMPI_HAVE_FORTRAN_REAL16 = 1
 OMPI_HAVE_FORTRAN_REAL2 = 0
-OMPI_HAVE_FORTRAN_REAL4 = 0
-OMPI_HAVE_FORTRAN_REAL8 = 0
+OMPI_HAVE_FORTRAN_REAL4 = 1
+OMPI_HAVE_FORTRAN_REAL8 = 1
 OMPI_JDK_CPPFLAGS = 
-OMPI_KIND_FORTRAN_CHARACTER = 0
-OMPI_KIND_FORTRAN_COMPLEX = 0
-OMPI_KIND_FORTRAN_COMPLEX16 = 0
-OMPI_KIND_FORTRAN_COMPLEX32 = 0
+OMPI_KIND_FORTRAN_CHARACTER = C_SIGNED_CHAR
+OMPI_KIND_FORTRAN_COMPLEX = C_FLOAT_COMPLEX
+OMPI_KIND_FORTRAN_COMPLEX16 = C_DOUBLE_COMPLEX
+OMPI_KIND_FORTRAN_COMPLEX32 = C_LONG_DOUBLE_COMPLEX
 OMPI_KIND_FORTRAN_COMPLEX4 = 0
-OMPI_KIND_FORTRAN_COMPLEX8 = 0
-OMPI_KIND_FORTRAN_DOUBLE_COMPLEX = 0
-OMPI_KIND_FORTRAN_DOUBLE_PRECISION = 0
-OMPI_KIND_FORTRAN_INTEGER = 0
-OMPI_KIND_FORTRAN_INTEGER1 = 0
+OMPI_KIND_FORTRAN_COMPLEX8 = C_FLOAT_COMPLEX
+OMPI_KIND_FORTRAN_DOUBLE_COMPLEX = C_DOUBLE_COMPLEX
+OMPI_KIND_FORTRAN_DOUBLE_PRECISION = C_DOUBLE
+OMPI_KIND_FORTRAN_INTEGER = C_INT
+OMPI_KIND_FORTRAN_INTEGER1 = C_SIGNED_CHAR
 OMPI_KIND_FORTRAN_INTEGER16 = 0
-OMPI_KIND_FORTRAN_INTEGER2 = 0
-OMPI_KIND_FORTRAN_INTEGER4 = 0
-OMPI_KIND_FORTRAN_INTEGER8 = 0
-OMPI_KIND_FORTRAN_LOGICAL = 0
-OMPI_KIND_FORTRAN_LOGICAL1 = 0
-OMPI_KIND_FORTRAN_LOGICAL2 = 0
-OMPI_KIND_FORTRAN_LOGICAL4 = 0
-OMPI_KIND_FORTRAN_LOGICAL8 = 0
-OMPI_KIND_FORTRAN_REAL = 0
-OMPI_KIND_FORTRAN_REAL16 = 0
+OMPI_KIND_FORTRAN_INTEGER2 = C_SHORT
+OMPI_KIND_FORTRAN_INTEGER4 = C_INT
+OMPI_KIND_FORTRAN_INTEGER8 = C_LONG_LONG
+OMPI_KIND_FORTRAN_LOGICAL = C_INT
+OMPI_KIND_FORTRAN_LOGICAL1 = C_SIGNED_CHAR
+OMPI_KIND_FORTRAN_LOGICAL2 = C_SHORT
+OMPI_KIND_FORTRAN_LOGICAL4 = C_INT
+OMPI_KIND_FORTRAN_LOGICAL8 = C_LONG_LONG
+OMPI_KIND_FORTRAN_REAL = C_FLOAT
+OMPI_KIND_FORTRAN_REAL16 = C_LONG_DOUBLE
 OMPI_KIND_FORTRAN_REAL2 = 0
-OMPI_KIND_FORTRAN_REAL4 = 0
-OMPI_KIND_FORTRAN_REAL8 = 0
+OMPI_KIND_FORTRAN_REAL4 = C_FLOAT
+OMPI_KIND_FORTRAN_REAL8 = C_DOUBLE
 OMPI_LIBMPI_EXTRA_LDFLAGS = 
 OMPI_LIBMPI_EXTRA_LIBS = 
 OMPI_LIBMPI_NAME = mpi
@@ -1305,40 +1305,40 @@ OMPI_MPIEXT_USEMPIF08_DIRS =  mpiext/pcollreq/use-mpi-f08
 OMPI_MPIEXT_USEMPIF08_LIBS =  $(top_builddir)/ompi/mpiext/pcollreq/use-mpi-f08/libmpiext_pcollreq_usempif08.la
 OMPI_MPIEXT_USEMPI_DIRS =  mpiext/pcollreq/use-mpi
 OMPI_MPIEXT_USEMPI_LIBS =  $(top_builddir)/ompi/mpiext/pcollreq/use-mpi/libmpiext_pcollreq_usempi.la
-OMPI_MPI_ADDRESS_KIND = 
+OMPI_MPI_ADDRESS_KIND = 8
 OMPI_MPI_BIND_PREFIX = mpi_
-OMPI_MPI_COUNT_KIND = 
-OMPI_MPI_INTEGER_KIND = 
-OMPI_MPI_OFFSET_KIND = 
+OMPI_MPI_COUNT_KIND = 8
+OMPI_MPI_INTEGER_KIND = 4
+OMPI_MPI_OFFSET_KIND = 8
 OMPI_MPI_PREFIX = MPI_
 OMPI_PKG_CONFIG_LDFLAGS =   
 OMPI_RELEASE_DATE = Aug 26, 2020
 OMPI_RELEASE_VERSION = 5
 OMPI_REPO_REV = v4.0.5
-OMPI_SIZEOF_FORTRAN_CHARACTER = 4
-OMPI_SIZEOF_FORTRAN_COMPLEX = 4
-OMPI_SIZEOF_FORTRAN_COMPLEX16 = 4
-OMPI_SIZEOF_FORTRAN_COMPLEX32 = 4
+OMPI_SIZEOF_FORTRAN_CHARACTER = 1
+OMPI_SIZEOF_FORTRAN_COMPLEX = 8
+OMPI_SIZEOF_FORTRAN_COMPLEX16 = 16
+OMPI_SIZEOF_FORTRAN_COMPLEX32 = 32
 OMPI_SIZEOF_FORTRAN_COMPLEX4 = 4
-OMPI_SIZEOF_FORTRAN_COMPLEX8 = 4
-OMPI_SIZEOF_FORTRAN_DOUBLE_COMPLEX = 4
-OMPI_SIZEOF_FORTRAN_DOUBLE_PRECISION = 4
+OMPI_SIZEOF_FORTRAN_COMPLEX8 = 8
+OMPI_SIZEOF_FORTRAN_DOUBLE_COMPLEX = 16
+OMPI_SIZEOF_FORTRAN_DOUBLE_PRECISION = 8
 OMPI_SIZEOF_FORTRAN_INTEGER = 4
-OMPI_SIZEOF_FORTRAN_INTEGER1 = 4
-OMPI_SIZEOF_FORTRAN_INTEGER16 = 4
-OMPI_SIZEOF_FORTRAN_INTEGER2 = 4
+OMPI_SIZEOF_FORTRAN_INTEGER1 = 1
+OMPI_SIZEOF_FORTRAN_INTEGER16 = 16
+OMPI_SIZEOF_FORTRAN_INTEGER2 = 2
 OMPI_SIZEOF_FORTRAN_INTEGER4 = 4
-OMPI_SIZEOF_FORTRAN_INTEGER8 = 4
+OMPI_SIZEOF_FORTRAN_INTEGER8 = 8
 OMPI_SIZEOF_FORTRAN_LOGICAL = 4
-OMPI_SIZEOF_FORTRAN_LOGICAL1 = 4
-OMPI_SIZEOF_FORTRAN_LOGICAL2 = 4
+OMPI_SIZEOF_FORTRAN_LOGICAL1 = 1
+OMPI_SIZEOF_FORTRAN_LOGICAL2 = 2
 OMPI_SIZEOF_FORTRAN_LOGICAL4 = 4
-OMPI_SIZEOF_FORTRAN_LOGICAL8 = 4
+OMPI_SIZEOF_FORTRAN_LOGICAL8 = 8
 OMPI_SIZEOF_FORTRAN_REAL = 4
-OMPI_SIZEOF_FORTRAN_REAL16 = 4
+OMPI_SIZEOF_FORTRAN_REAL16 = 16
 OMPI_SIZEOF_FORTRAN_REAL2 = 4
 OMPI_SIZEOF_FORTRAN_REAL4 = 4
-OMPI_SIZEOF_FORTRAN_REAL8 = 4
+OMPI_SIZEOF_FORTRAN_REAL8 = 8
 OMPI_TARBALL_VERSION = 4.0.5
 OMPI_TOP_BUILDDIR = /Users/ghost/Documents/super-pi/tools/openmpi-4.0.5
 OMPI_TOP_SRCDIR = /Users/ghost/Documents/super-pi/tools/openmpi-4.0.5
@@ -1350,11 +1350,11 @@ OMPI_WRAPPER_EXTRA_CFLAGS_PREFIX =
 OMPI_WRAPPER_EXTRA_CPPFLAGS =    
 OMPI_WRAPPER_EXTRA_CXXFLAGS =  
 OMPI_WRAPPER_EXTRA_CXXFLAGS_PREFIX = 
-OMPI_WRAPPER_EXTRA_FCFLAGS =  
+OMPI_WRAPPER_EXTRA_FCFLAGS = -Wl,-flat_namespace -Wl,-commons,use_dylibs  -I${libdir}
 OMPI_WRAPPER_EXTRA_FCFLAGS_PREFIX = 
 OMPI_WRAPPER_EXTRA_FC_LDFLAGS =   
 OMPI_WRAPPER_EXTRA_LDFLAGS =   
-OMPI_WRAPPER_EXTRA_LIBS = -lm  -lz
+OMPI_WRAPPER_EXTRA_LIBS = -lhwloc -levent_core -levent_pthreads  -lz
 OMPI_WRAPPER_FORTRAN_REQUIRED_FILE = 
 OMPI_WRAPPER_INCLUDEDIR = NONE/include
 OMPI_WRAPPER_LIBDIR = NONE/lib
@@ -1370,7 +1370,7 @@ OPAL_AS_GLOBAL =
 OPAL_AS_LABEL_SUFFIX = 
 OPAL_CC_ABSOLUTE = /usr/bin/gcc
 OPAL_CONFIGURE_CLI = 
-OPAL_CONFIGURE_DATE = Sun Sep 13 14:59:34 IST 2020
+OPAL_CONFIGURE_DATE = Wed Oct 28 21:58:32 IST 2020
 OPAL_CONFIGURE_HOST = Ghosts-MacBook-Pro.local
 OPAL_CONFIGURE_USER = ghost
 OPAL_CXX_ABSOLUTE = /usr/bin/g++
@@ -1403,7 +1403,7 @@ OPAL_WRAPPER_EXTRA_CPPFLAGS =
 OPAL_WRAPPER_EXTRA_CXXFLAGS =  
 OPAL_WRAPPER_EXTRA_CXXFLAGS_PREFIX = 
 OPAL_WRAPPER_EXTRA_LDFLAGS =   
-OPAL_WRAPPER_EXTRA_LIBS = -lm 
+OPAL_WRAPPER_EXTRA_LIBS = -lhwloc -levent_core -levent_pthreads 
 ORTE_GREEK_VERSION = 
 ORTE_LIB_PREFIX = 
 ORTE_MAJOR_VERSION = 4
@@ -1420,7 +1420,7 @@ ORTE_WRAPPER_EXTRA_CFLAGS =
 ORTE_WRAPPER_EXTRA_CFLAGS_PREFIX = 
 ORTE_WRAPPER_EXTRA_CPPFLAGS =    
 ORTE_WRAPPER_EXTRA_LDFLAGS =   
-ORTE_WRAPPER_EXTRA_LIBS = -lm 
+ORTE_WRAPPER_EXTRA_LIBS = -lhwloc -levent_core -levent_pthreads 
 OSHMEM_GREEK_VERSION = 
 OSHMEM_LIBSHMEM_EXTRA_LDFLAGS = 
 OSHMEM_LIBSHMEM_EXTRA_LIBS = 
@@ -1443,7 +1443,7 @@ PACKAGE_TARNAME = openmpi
 PACKAGE_URL = 
 PACKAGE_VERSION = 4.0.5
 PATH_SEPARATOR = :
-PERL = /usr/bin/perl
+PERL = /usr/local/bin/perl
 PKG_CONFIG = 
 PKG_CONFIG_LIBDIR = 
 PKG_CONFIG_PATH = 
@@ -1469,7 +1469,7 @@ ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 ac_ct_DUMPBIN = 
-ac_ct_FC = 
+ac_ct_FC = gfortran
 ac_prefix_program = 
 am__include = include
 am__leading_dot = .
@@ -1627,9 +1627,9 @@ opal_dl_libltdl_LDFLAGS =
 opal_dl_libltdl_LIBS = 
 opal_event_external_CPPFLAGS = 
 opal_event_external_LDFLAGS = 
-opal_event_external_LIBS = 
+opal_event_external_LIBS = -levent_core -levent_pthreads
 opal_hwloc_external_LDFLAGS = 
-opal_hwloc_external_LIBS = 
+opal_hwloc_external_LIBS = -lhwloc 
 opal_hwloc_hwloc201_CFLAGS = 
 opal_hwloc_hwloc201_CPPFLAGS = 
 opal_hwloc_hwloc201_LDFLAGS = $(HWLOC_EMBEDDED_LDFLAGS)
@@ -1779,65 +1779,65 @@ noinst_LTLIBRARIES = $(am__append_1)
 # mpiext_pcollreq_usempif08.h is automatically slurped up into the
 # mpi_f08_ext module.  It must be listed so that it is included in
 # dist tarballs.
-#noinst_HEADERS = mpiext_pcollreq_usempif08.h
-#mpi_api_files = \
-#        allgather_init_f08.F90 \
-#        allgatherv_init_f08.F90 \
-#        allreduce_init_f08.F90 \
-#        alltoall_init_f08.F90 \
-#        alltoallv_init_f08.F90 \
-#        alltoallw_init_f08.F90 \
-#        barrier_init_f08.F90 \
-#        bcast_init_f08.F90 \
-#        exscan_init_f08.F90 \
-#        gather_init_f08.F90 \
-#        gatherv_init_f08.F90 \
-#        reduce_init_f08.F90 \
-#        reduce_scatter_block_init_f08.F90 \
-#        reduce_scatter_init_f08.F90 \
-#        scan_init_f08.F90 \
-#        scatter_init_f08.F90 \
-#        scatterv_init_f08.F90 \
-#        \
-#        neighbor_allgather_init_f08.F90 \
-#        neighbor_allgatherv_init_f08.F90 \
-#        neighbor_alltoall_init_f08.F90 \
-#        neighbor_alltoallv_init_f08.F90 \
-#        neighbor_alltoallw_init_f08.F90
+noinst_HEADERS = mpiext_pcollreq_usempif08.h
+mpi_api_files = \
+        allgather_init_f08.F90 \
+        allgatherv_init_f08.F90 \
+        allreduce_init_f08.F90 \
+        alltoall_init_f08.F90 \
+        alltoallv_init_f08.F90 \
+        alltoallw_init_f08.F90 \
+        barrier_init_f08.F90 \
+        bcast_init_f08.F90 \
+        exscan_init_f08.F90 \
+        gather_init_f08.F90 \
+        gatherv_init_f08.F90 \
+        reduce_init_f08.F90 \
+        reduce_scatter_block_init_f08.F90 \
+        reduce_scatter_init_f08.F90 \
+        scan_init_f08.F90 \
+        scatter_init_f08.F90 \
+        scatterv_init_f08.F90 \
+        \
+        neighbor_allgather_init_f08.F90 \
+        neighbor_allgatherv_init_f08.F90 \
+        neighbor_alltoall_init_f08.F90 \
+        neighbor_alltoallv_init_f08.F90 \
+        neighbor_alltoallw_init_f08.F90
 
-#pmpi_api_files = \
-#        profile/pallgather_init_f08.F90 \
-#        profile/pallgatherv_init_f08.F90 \
-#        profile/pallreduce_init_f08.F90 \
-#        profile/palltoall_init_f08.F90 \
-#        profile/palltoallv_init_f08.F90 \
-#        profile/palltoallw_init_f08.F90 \
-#        profile/pbarrier_init_f08.F90 \
-#        profile/pbcast_init_f08.F90 \
-#        profile/pexscan_init_f08.F90 \
-#        profile/pgather_init_f08.F90 \
-#        profile/pgatherv_init_f08.F90 \
-#        profile/preduce_init_f08.F90 \
-#        profile/preduce_scatter_block_init_f08.F90 \
-#        profile/preduce_scatter_init_f08.F90 \
-#        profile/pscan_init_f08.F90 \
-#        profile/pscatter_init_f08.F90 \
-#        profile/pscatterv_init_f08.F90 \
-#        \
-#        profile/pneighbor_allgather_init_f08.F90 \
-#        profile/pneighbor_allgatherv_init_f08.F90 \
-#        profile/pneighbor_alltoall_init_f08.F90 \
-#        profile/pneighbor_alltoallv_init_f08.F90 \
-#        profile/pneighbor_alltoallw_init_f08.F90
+pmpi_api_files = \
+        profile/pallgather_init_f08.F90 \
+        profile/pallgatherv_init_f08.F90 \
+        profile/pallreduce_init_f08.F90 \
+        profile/palltoall_init_f08.F90 \
+        profile/palltoallv_init_f08.F90 \
+        profile/palltoallw_init_f08.F90 \
+        profile/pbarrier_init_f08.F90 \
+        profile/pbcast_init_f08.F90 \
+        profile/pexscan_init_f08.F90 \
+        profile/pgather_init_f08.F90 \
+        profile/pgatherv_init_f08.F90 \
+        profile/preduce_init_f08.F90 \
+        profile/preduce_scatter_block_init_f08.F90 \
+        profile/preduce_scatter_init_f08.F90 \
+        profile/pscan_init_f08.F90 \
+        profile/pscatter_init_f08.F90 \
+        profile/pscatterv_init_f08.F90 \
+        \
+        profile/pneighbor_allgather_init_f08.F90 \
+        profile/pneighbor_allgatherv_init_f08.F90 \
+        profile/pneighbor_alltoall_init_f08.F90 \
+        profile/pneighbor_alltoallv_init_f08.F90 \
+        profile/pneighbor_alltoallw_init_f08.F90
 
-#mpi_api_lo_files = $(mpi_api_files:.F90=.lo)
-#pmpi_api_lo_files = $(pmpi_api_files:.F90=.lo)
+mpi_api_lo_files = $(mpi_api_files:.F90=.lo)
+pmpi_api_lo_files = $(pmpi_api_files:.F90=.lo)
 
 # Sources for the convenience libtool library.
-#libmpiext_pcollreq_usempif08_la_SOURCES = \
-#        mpiext_pcollreq_f08.F90 \
-#        $(mpi_api_files) \
-#        $(pmpi_api_files)
+libmpiext_pcollreq_usempif08_la_SOURCES = \
+        mpiext_pcollreq_f08.F90 \
+        $(mpi_api_files) \
+        $(pmpi_api_files)
 
 all: all-am
 
@@ -2080,7 +2080,7 @@ distclean-generic:
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
 	@echo "it deletes files that may require special tools to rebuild."
-distclean-local:
+#distclean-local:
 clean: clean-am
 
 clean-am: clean-generic clean-libtool clean-noinstLTLIBRARIES \
@@ -2169,12 +2169,12 @@ uninstall-am:
 .PRECIOUS: Makefile
 
 
-#$(mpi_api_lo_files): mpiext_pcollreq_f08.lo
-#$(pmpi_api_lo_files): mpiext_pcollreq_f08.lo
+$(mpi_api_lo_files): mpiext_pcollreq_f08.lo
+$(pmpi_api_lo_files): mpiext_pcollreq_f08.lo
 
 # Remove the intermediate module file
-#distclean-local:
-#	rm -f mpiext_pcollreq_f08.mod
+distclean-local:
+	rm -f mpiext_pcollreq_f08.mod
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

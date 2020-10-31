@@ -211,12 +211,12 @@ typedef uint64_t hwloc_uint64_t;
 #endif /* HWLOC_HAVE_WINDOWS_H */
 
 /* Whether we need to re-define all the hwloc public symbols or not */
-#define HWLOC_SYM_TRANSFORM 1
+#define HWLOC_SYM_TRANSFORM 0
 
 /* The hwloc symbol prefix */
-#define HWLOC_SYM_PREFIX opal_hwloc201_
+#define HWLOC_SYM_PREFIX hwloc_
 
 /* The hwloc symbol prefix in all caps */
-#define HWLOC_SYM_PREFIX_CAPS OPAL_HWLOC201_
+#define HWLOC_SYM_PREFIX_CAPS HWLOC_
 
 #endif /* HWLOC_CONFIG_H */

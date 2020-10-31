@@ -5,10 +5,10 @@
 extern "C" {
 #endif
 
-extern const mca_base_component_t mca_event_libevent2022_component;
+extern const mca_base_component_t mca_event_external_component;
 
 const mca_base_component_t *mca_event_base_static_components[] = {
-  &mca_event_libevent2022_component, 
+  &mca_event_external_component, 
   NULL
 };
 

@@ -21,7 +21,7 @@ linker_flags=
 # ortecc/ortec++ because we intend ORTE applications to use both the
 # ORTE and OPAL APIs.
 libs=-lopen-rte -lopen-pal
-libs_static=-lopen-rte -lopen-pal -lm 
+libs_static=-lopen-rte -lopen-pal -lhwloc -levent_core -levent_pthreads 
 dyn_lib_file=libopen-rte.dylib
 static_lib_file=libopen-rte.a
 required_file=

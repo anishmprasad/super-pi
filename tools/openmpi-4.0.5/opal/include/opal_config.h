@@ -38,7 +38,7 @@
 /* #undef CRAY_WLM_DETECT */
 
 /* Version of event */
-/* #undef EVENT_EXTERNAL_EVENT_VERSION */
+#define EVENT_EXTERNAL_EVENT_VERSION external
 
 /* Define to 1 if you have the <aio.h> header file. */
 #define HAVE_AIO_H 1
@@ -446,7 +446,7 @@
 #define HAVE_ERR_H 1
 
 /* Define to 1 if you have the <event2/event.h> header file. */
-/* #undef HAVE_EVENT2_EVENT_H */
+#define HAVE_EVENT2_EVENT_H 1
 
 /* Define to 1 if you have the <execinfo.h> header file. */
 #define HAVE_EXECINFO_H 1
@@ -518,7 +518,7 @@
 #define HAVE_HOST_INFO 1
 
 /* Define to 1 if you have the <hwloc.h> header file. */
-/* #undef HAVE_HWLOC_H */
+#define HAVE_HWLOC_H 1
 
 /* Define to 1 if you have the `hwloc_topology_dup' function. */
 #define HAVE_HWLOC_TOPOLOGY_DUP 1
@@ -587,10 +587,10 @@
 /* #undef HAVE_KSTAT_H */
 
 /* Define to 1 if you have the `event_core' library (-levent_core). */
-/* #undef HAVE_LIBEVENT_CORE */
+#define HAVE_LIBEVENT_CORE 1
 
 /* Define to 1 if you have the `event_pthreads' library (-levent_pthreads). */
-/* #undef HAVE_LIBEVENT_PTHREADS */
+#define HAVE_LIBEVENT_PTHREADS 1
 
 /* Define to 1 if we have -lgdi32 */
 /* #undef HAVE_LIBGDI32 */
@@ -1237,7 +1237,7 @@
 /* #undef HWLOC_DEBUG */
 
 /* Version of hwloc */
-/* #undef HWLOC_EXTERNAL_HWLOC_VERSION */
+#define HWLOC_EXTERNAL_HWLOC_VERSION external
 
 /* Define to 1 on *FREEBSD */
 /* #undef HWLOC_FREEBSD_SYS */
@@ -1429,13 +1429,13 @@
 /* #undef HWLOC_SOLARIS_SYS */
 
 /* The hwloc symbol prefix */
-#define HWLOC_SYM_PREFIX opal_hwloc201_
+#define HWLOC_SYM_PREFIX hwloc_
 
 /* The hwloc symbol prefix in all caps */
-#define HWLOC_SYM_PREFIX_CAPS OPAL_HWLOC201_
+#define HWLOC_SYM_PREFIX_CAPS HWLOC_
 
 /* Whether we need to re-define all the hwloc public symbols or not */
-#define HWLOC_SYM_TRANSFORM 1
+#define HWLOC_SYM_TRANSFORM 0
 
 /* Define to 1 on unsupported systems */
 /* #undef HWLOC_UNSUPPORTED_SYS */
@@ -1457,22 +1457,22 @@
 #define LT_OBJDIR ".libs/"
 
 /* Header to include for event implementation */
-#define MCA_event_IMPLEMENTATION_HEADER "opal/mca/event/libevent2022/libevent2022.h"
+#define MCA_event_IMPLEMENTATION_HEADER "opal/mca/event/external/external.h"
 
 /* Header to include for hwloc implementation */
-#define MCA_hwloc_IMPLEMENTATION_HEADER "opal/mca/hwloc/hwloc201/hwloc201.h"
+#define MCA_hwloc_IMPLEMENTATION_HEADER "opal/mca/hwloc/external/external.h"
 
 /* Location of external hwloc header */
-/* #undef MCA_hwloc_external_header */
+#define MCA_hwloc_external_header "hwloc.h"
 
 /* Location of external hwloc OpenFabrics header */
-/* #undef MCA_hwloc_external_openfabrics_header */
+#define MCA_hwloc_external_openfabrics_header "hwloc/openfabrics-verbs.h"
 
 /* Location of external hwloc shmem header */
-/* #undef MCA_hwloc_external_shmem_header */
+#define MCA_hwloc_external_shmem_header "hwloc/shmem.h"
 
 /* Complete set of command line arguments given to ROMIOs configure script */
-#define MCA_io_romio321_COMPLETE_CONFIGURE_FLAGS " FROM_OMPI=yes CC='gcc' CFLAGS='-O3 -DNDEBUG -finline-functions -fno-strict-aliasing  -D__EXTENSIONS__' CPPFLAGS='-I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5/opal/mca/event/libevent2022/libevent -I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5/opal/mca/event/libevent2022/libevent/include -I/Users/ghost/Documents/super-pi/tools/openmpi-4.0.5/opal/mca/hwloc/hwloc201/hwloc/include  ' FFLAGS='' LDFLAGS=' ' --enable-shared --disable-static   --disable-aio --disable-weak-symbols --enable-strict --disable-f77 --disable-f90"
+#define MCA_io_romio321_COMPLETE_CONFIGURE_FLAGS " FROM_OMPI=yes CC='gcc' CFLAGS='-O3 -DNDEBUG -finline-functions -fno-strict-aliasing  -D__EXTENSIONS__' CPPFLAGS='   ' FFLAGS='' LDFLAGS=' -Wl,-flat_namespace   ' --enable-shared --disable-static   --disable-aio --disable-weak-symbols --enable-strict --disable-f77 --disable-f90"
 
 /* Set of user-defined configure flags given to ROMIOs configure script via
    --with-io-romio-flags */
@@ -1553,16 +1553,16 @@
 #define MPI_PARAM_CHECK ompi_mpi_param_check
 
 /* Alignment of Fortran CHARACTER */
-#define OMPI_ALIGNMENT_FORTRAN_CHARACTER 4
+#define OMPI_ALIGNMENT_FORTRAN_CHARACTER 1
 
 /* Alignment of Fortran COMPLEX */
 #define OMPI_ALIGNMENT_FORTRAN_COMPLEX 4
 
 /* Alignment of Fortran COMPLEX*16 */
-#define OMPI_ALIGNMENT_FORTRAN_COMPLEX16 4
+#define OMPI_ALIGNMENT_FORTRAN_COMPLEX16 8
 
 /* Alignment of Fortran COMPLEX*32 */
-#define OMPI_ALIGNMENT_FORTRAN_COMPLEX32 4
+#define OMPI_ALIGNMENT_FORTRAN_COMPLEX32 16
 
 /* Alignment of Fortran COMPLEX*4 */
 #define OMPI_ALIGNMENT_FORTRAN_COMPLEX4 4
@@ -1571,49 +1571,49 @@
 #define OMPI_ALIGNMENT_FORTRAN_COMPLEX8 4
 
 /* Alignment of Fortran DOUBLE COMPLEX */
-#define OMPI_ALIGNMENT_FORTRAN_DOUBLE_COMPLEX 4
+#define OMPI_ALIGNMENT_FORTRAN_DOUBLE_COMPLEX 8
 
 /* Alignment of Fortran DOUBLE PRECISION */
-#define OMPI_ALIGNMENT_FORTRAN_DOUBLE_PRECISION 4
+#define OMPI_ALIGNMENT_FORTRAN_DOUBLE_PRECISION 8
 
 /* Alignment of Fortran INTEGER */
 #define OMPI_ALIGNMENT_FORTRAN_INTEGER 4
 
 /* Alignment of Fortran INTEGER*1 */
-#define OMPI_ALIGNMENT_FORTRAN_INTEGER1 4
+#define OMPI_ALIGNMENT_FORTRAN_INTEGER1 1
 
 /* Alignment of Fortran INTEGER*16 */
 #define OMPI_ALIGNMENT_FORTRAN_INTEGER16 4
 
 /* Alignment of Fortran INTEGER*2 */
-#define OMPI_ALIGNMENT_FORTRAN_INTEGER2 4
+#define OMPI_ALIGNMENT_FORTRAN_INTEGER2 2
 
 /* Alignment of Fortran INTEGER*4 */
 #define OMPI_ALIGNMENT_FORTRAN_INTEGER4 4
 
 /* Alignment of Fortran INTEGER*8 */
-#define OMPI_ALIGNMENT_FORTRAN_INTEGER8 4
+#define OMPI_ALIGNMENT_FORTRAN_INTEGER8 8
 
 /* Alignment of Fortran LOGICAL */
 #define OMPI_ALIGNMENT_FORTRAN_LOGICAL 4
 
 /* Alignment of Fortran LOGICAL*1 */
-#define OMPI_ALIGNMENT_FORTRAN_LOGICAL1 4
+#define OMPI_ALIGNMENT_FORTRAN_LOGICAL1 1
 
 /* Alignment of Fortran LOGICAL*2 */
-#define OMPI_ALIGNMENT_FORTRAN_LOGICAL2 4
+#define OMPI_ALIGNMENT_FORTRAN_LOGICAL2 2
 
 /* Alignment of Fortran LOGICAL*4 */
 #define OMPI_ALIGNMENT_FORTRAN_LOGICAL4 4
 
 /* Alignment of Fortran LOGICAL*8 */
-#define OMPI_ALIGNMENT_FORTRAN_LOGICAL8 4
+#define OMPI_ALIGNMENT_FORTRAN_LOGICAL8 8
 
 /* Alignment of Fortran REAL */
 #define OMPI_ALIGNMENT_FORTRAN_REAL 4
 
 /* Alignment of Fortran REAL*16 */
-#define OMPI_ALIGNMENT_FORTRAN_REAL16 4
+#define OMPI_ALIGNMENT_FORTRAN_REAL16 16
 
 /* Alignment of Fortran REAL*2 */
 #define OMPI_ALIGNMENT_FORTRAN_REAL2 4
@@ -1622,13 +1622,13 @@
 #define OMPI_ALIGNMENT_FORTRAN_REAL4 4
 
 /* Alignment of Fortran REAL*8 */
-#define OMPI_ALIGNMENT_FORTRAN_REAL8 4
+#define OMPI_ALIGNMENT_FORTRAN_REAL8 8
 
 /* Whether we want MPI C++ support or not */
 #define OMPI_BUILD_CXX_BINDINGS 0
 
 /* The level of fortran bindings to be built */
-#define OMPI_BUILD_FORTRAN_BINDINGS 0
+#define OMPI_BUILD_FORTRAN_BINDINGS 3
 
 /* OMPI underlying C++ compiler */
 #define OMPI_CXX "g++"
@@ -1652,13 +1652,13 @@
 #define OMPI_ENABLE_MPI1_COMPAT 0
 
 /* Underlying Fortran compiler */
-#define OMPI_FC "none"
+#define OMPI_FC "gfortran"
 
 /* Absolutey path to the underlying Fortran compiler found by configure */
-#define OMPI_FC_ABSOLUTE "none"
+#define OMPI_FC_ABSOLUTE "/usr/local/bin/gfortran"
 
 /* Whether the mpif.h interface supports the MPI_SIZEOF interface or not */
-#define OMPI_FORTRAN_BUILD_SIZEOF 0
+#define OMPI_FORTRAN_BUILD_SIZEOF 1
 
 /* Whether fortran symbols are all caps or not */
 #define OMPI_FORTRAN_CAPS 0
@@ -1678,78 +1678,78 @@
 
 /* For mpi-f08-interfaces-callbacks.f90 and ompi_info: whether the compiler
    supports the "abstract" keyword or not */
-#define OMPI_FORTRAN_HAVE_ABSTRACT 0
+#define OMPI_FORTRAN_HAVE_ABSTRACT 1
 
 /* For ompi/mpi/fortran/use-mpi-f08/blah.F90 and blah.h and ompi_info: whether
    the compiler supports the "asynchronous" keyword or not */
-#define OMPI_FORTRAN_HAVE_ASYNCHRONOUS 0
+#define OMPI_FORTRAN_HAVE_ASYNCHRONOUS 1
 
 /* For ompi_info: Whether the compiler supports all forms of BIND(C) that we
    need */
-#define OMPI_FORTRAN_HAVE_BIND_C 0
+#define OMPI_FORTRAN_HAVE_BIND_C 1
 
 /* For ompi_info: Whether the compiler supports SUBROUTINE ... BIND(C) or not
    */
-#define OMPI_FORTRAN_HAVE_BIND_C_SUB 0
+#define OMPI_FORTRAN_HAVE_BIND_C_SUB 1
 
 /* For ompi_info: Whether the compiler supports TYPE, BIND(C) or not */
-#define OMPI_FORTRAN_HAVE_BIND_C_TYPE 0
+#define OMPI_FORTRAN_HAVE_BIND_C_TYPE 1
 
 /* For ompi_info: Whether the compiler supports TYPE, BIND(C, NAME="name") or
    not */
-#define OMPI_FORTRAN_HAVE_BIND_C_TYPE_NAME 0
+#define OMPI_FORTRAN_HAVE_BIND_C_TYPE_NAME 1
 
 /* For ompi/mpi/fortran/use-mpi-f08/blah.F90 and blah.h and ompi_info: whether
    the compiler supports c_funloc or not */
-#define OMPI_FORTRAN_HAVE_C_FUNLOC 0
+#define OMPI_FORTRAN_HAVE_C_FUNLOC 1
 
 /* For ompi_info: Whether the Fortran compiler supports the Fortran 2008
    "assumed rank" syntax or not */
-#define OMPI_FORTRAN_HAVE_F08_ASSUMED_RANK 0
+#define OMPI_FORTRAN_HAVE_F08_ASSUMED_RANK 1
 
 /* Whether the Fortran compiler supports ignore TKR functionality or not */
-#define OMPI_FORTRAN_HAVE_IGNORE_TKR 0
+#define OMPI_FORTRAN_HAVE_IGNORE_TKR 1
 
 /* Whether the compiler supports INTERFACE or not */
-#define OMPI_FORTRAN_HAVE_INTERFACE 0
+#define OMPI_FORTRAN_HAVE_INTERFACE 1
 
 /* For ompi_info: Whether the compiler supports ISO_C_BINDING or not */
-#define OMPI_FORTRAN_HAVE_ISO_C_BINDING 0
+#define OMPI_FORTRAN_HAVE_ISO_C_BINDING 1
 
 /* Whether the compiler supports ISO_FORTRAN_ENV or not */
-#define OMPI_FORTRAN_HAVE_ISO_FORTRAN_ENV 0
+#define OMPI_FORTRAN_HAVE_ISO_FORTRAN_ENV 1
 
 /* For ompi_info: whether the Fortran compiler supports optional arguments or
    not */
-#define OMPI_FORTRAN_HAVE_OPTIONAL_ARGS 0
+#define OMPI_FORTRAN_HAVE_OPTIONAL_ARGS 1
 
 /* For mpi-f08-types.f90 and ompi_info: whether the compiler supports the
    "private" keyword or not (used in MPI_Status) */
-#define OMPI_FORTRAN_HAVE_PRIVATE 0
+#define OMPI_FORTRAN_HAVE_PRIVATE 1
 
 /* For ompi/mpi/fortran/use-mpi-f08/blah.F90 and blah.h and ompi_info: whether
    the compiler supports the "procedure" keyword or not */
-#define OMPI_FORTRAN_HAVE_PROCEDURE 0
+#define OMPI_FORTRAN_HAVE_PROCEDURE 1
 
 /* For mpi-f08-types.f90 and .F90 and ompi_info: whether the compiler supports
    the "protected" keyword or not */
-#define OMPI_FORTRAN_HAVE_PROTECTED 0
+#define OMPI_FORTRAN_HAVE_PROTECTED 1
 
 /* Whether the compiler supports STORAGE_SIZE on relevant types */
-#define OMPI_FORTRAN_HAVE_STORAGE_SIZE 0
+#define OMPI_FORTRAN_HAVE_STORAGE_SIZE 1
 
 /* For ompi/mpi/fortran/use-mpi-f08/blah.F90 and blah.h and ompi_info: whether
    the compiler supports "USE ... ONLY" notation properly or not */
-#define OMPI_FORTRAN_HAVE_USE_ONLY 0
+#define OMPI_FORTRAN_HAVE_USE_ONLY 1
 
 /* Pre declaration for FORTRAN ignore parameter TKR behavior */
-#define OMPI_FORTRAN_IGNORE_TKR_PREDECL ""
+#define OMPI_FORTRAN_IGNORE_TKR_PREDECL "!GCC$ ATTRIBUTES NO_ARG_CHECK ::"
 
 /* Type declaration for FORTRAN ignore parameter TKR behavior */
 #define OMPI_FORTRAN_IGNORE_TKR_TYPE 
 
 /* Max dimension rank of Fortran arrays */
-#define OMPI_FORTRAN_MAX_ARRAY_RANK 0
+#define OMPI_FORTRAN_MAX_ARRAY_RANK 15
 
 /* Whether we are building support for the mpif.h bindings or not */
 #define OMPI_FORTRAN_MPIFH_BINDINGS 1
@@ -1757,13 +1757,13 @@
 /* Whether the mpi_f08 implementation is using wrapper routines ("bad" Fortran
    compiler) or weak symbols ("good" Fortran compiler) for the F08 interface
    definition implementations */
-#define OMPI_FORTRAN_NEED_WRAPPER_ROUTINES 0
+#define OMPI_FORTRAN_NEED_WRAPPER_ROUTINES 1
 
 /* Whether fortran symbols have no trailing underscore or not */
 #define OMPI_FORTRAN_PLAIN 0
 
 /* Whether fortran symbols have a trailing underscore or not */
-#define OMPI_FORTRAN_SINGLE_UNDERSCORE 0
+#define OMPI_FORTRAN_SINGLE_UNDERSCORE 1
 
 /* Whether we are building support for the "use mpif08" bindings or not */
 #define OMPI_FORTRAN_USEMPIF08_BINDINGS 3
@@ -1772,7 +1772,7 @@
 #define OMPI_FORTRAN_USEMPI_BINDINGS 2
 
 /* Fortran value for LOGICAL .TRUE. value */
-#define OMPI_FORTRAN_VALUE_TRUE 77
+#define OMPI_FORTRAN_VALUE_TRUE 1
 
 /* Greek - alpha, beta, etc - release number of Open MPI */
 #define OMPI_GREEK_VERSION ""
@@ -1784,148 +1784,148 @@
 #define OMPI_HAVE_CXX_EXCEPTION_SUPPORT 0
 
 /* Whether we have Fortran CHARACTER or not */
-#define OMPI_HAVE_FORTRAN_CHARACTER 0
+#define OMPI_HAVE_FORTRAN_CHARACTER 1
 
 /* Whether we have Fortran COMPLEX or not */
-#define OMPI_HAVE_FORTRAN_COMPLEX 0
+#define OMPI_HAVE_FORTRAN_COMPLEX 1
 
 /* Whether we have Fortran COMPLEX*16 or not */
-#define OMPI_HAVE_FORTRAN_COMPLEX16 0
+#define OMPI_HAVE_FORTRAN_COMPLEX16 1
 
 /* Whether we have Fortran COMPLEX*32 or not */
-#define OMPI_HAVE_FORTRAN_COMPLEX32 0
+#define OMPI_HAVE_FORTRAN_COMPLEX32 1
 
 /* Whether we have Fortran COMPLEX*4 or not */
 #define OMPI_HAVE_FORTRAN_COMPLEX4 0
 
 /* Whether we have Fortran COMPLEX*8 or not */
-#define OMPI_HAVE_FORTRAN_COMPLEX8 0
+#define OMPI_HAVE_FORTRAN_COMPLEX8 1
 
 /* Whether we have Fortran DOUBLE COMPLEX or not */
-#define OMPI_HAVE_FORTRAN_DOUBLE_COMPLEX 0
+#define OMPI_HAVE_FORTRAN_DOUBLE_COMPLEX 1
 
 /* Whether we have Fortran DOUBLE PRECISION or not */
-#define OMPI_HAVE_FORTRAN_DOUBLE_PRECISION 0
+#define OMPI_HAVE_FORTRAN_DOUBLE_PRECISION 1
 
 /* Whether we have Fortran INTEGER or not */
-#define OMPI_HAVE_FORTRAN_INTEGER 0
+#define OMPI_HAVE_FORTRAN_INTEGER 1
 
 /* Whether we have Fortran INTEGER*1 or not */
-#define OMPI_HAVE_FORTRAN_INTEGER1 0
+#define OMPI_HAVE_FORTRAN_INTEGER1 1
 
 /* Whether we have Fortran INTEGER*16 or not */
 #define OMPI_HAVE_FORTRAN_INTEGER16 0
 
 /* Whether we have Fortran INTEGER*2 or not */
-#define OMPI_HAVE_FORTRAN_INTEGER2 0
+#define OMPI_HAVE_FORTRAN_INTEGER2 1
 
 /* Whether we have Fortran INTEGER*4 or not */
-#define OMPI_HAVE_FORTRAN_INTEGER4 0
+#define OMPI_HAVE_FORTRAN_INTEGER4 1
 
 /* Whether we have Fortran INTEGER*8 or not */
-#define OMPI_HAVE_FORTRAN_INTEGER8 0
+#define OMPI_HAVE_FORTRAN_INTEGER8 1
 
 /* Whether we have Fortran LOGICAL or not */
-#define OMPI_HAVE_FORTRAN_LOGICAL 0
+#define OMPI_HAVE_FORTRAN_LOGICAL 1
 
 /* Whether we have Fortran LOGICAL*1 or not */
-#define OMPI_HAVE_FORTRAN_LOGICAL1 0
+#define OMPI_HAVE_FORTRAN_LOGICAL1 1
 
 /* Whether we have Fortran LOGICAL*2 or not */
-#define OMPI_HAVE_FORTRAN_LOGICAL2 0
+#define OMPI_HAVE_FORTRAN_LOGICAL2 1
 
 /* Whether we have Fortran LOGICAL*4 or not */
-#define OMPI_HAVE_FORTRAN_LOGICAL4 0
+#define OMPI_HAVE_FORTRAN_LOGICAL4 1
 
 /* Whether we have Fortran LOGICAL*8 or not */
-#define OMPI_HAVE_FORTRAN_LOGICAL8 0
+#define OMPI_HAVE_FORTRAN_LOGICAL8 1
 
 /* Whether we have Fortran REAL or not */
-#define OMPI_HAVE_FORTRAN_REAL 0
+#define OMPI_HAVE_FORTRAN_REAL 1
 
 /* Whether we have Fortran REAL*16 or not */
-#define OMPI_HAVE_FORTRAN_REAL16 0
+#define OMPI_HAVE_FORTRAN_REAL16 1
 
 /* Whether we have Fortran REAL*2 or not */
 #define OMPI_HAVE_FORTRAN_REAL2 0
 
 /* Whether we have Fortran REAL*4 or not */
-#define OMPI_HAVE_FORTRAN_REAL4 0
+#define OMPI_HAVE_FORTRAN_REAL4 1
 
 /* Whether we have Fortran REAL*8 or not */
-#define OMPI_HAVE_FORTRAN_REAL8 0
+#define OMPI_HAVE_FORTRAN_REAL8 1
 
 /* Fortrn KIND number for CHARACTER */
-#define OMPI_KIND_FORTRAN_CHARACTER 0
+#define OMPI_KIND_FORTRAN_CHARACTER C_SIGNED_CHAR
 
 /* Fortrn KIND number for COMPLEX */
-#define OMPI_KIND_FORTRAN_COMPLEX 0
+#define OMPI_KIND_FORTRAN_COMPLEX C_FLOAT_COMPLEX
 
 /* Fortrn KIND number for COMPLEX*16 */
-#define OMPI_KIND_FORTRAN_COMPLEX16 0
+#define OMPI_KIND_FORTRAN_COMPLEX16 C_DOUBLE_COMPLEX
 
 /* Fortrn KIND number for COMPLEX*32 */
-#define OMPI_KIND_FORTRAN_COMPLEX32 0
+#define OMPI_KIND_FORTRAN_COMPLEX32 C_LONG_DOUBLE_COMPLEX
 
 /* Fortrn KIND number for COMPLEX*4 */
 #define OMPI_KIND_FORTRAN_COMPLEX4 0
 
 /* Fortrn KIND number for COMPLEX*8 */
-#define OMPI_KIND_FORTRAN_COMPLEX8 0
+#define OMPI_KIND_FORTRAN_COMPLEX8 C_FLOAT_COMPLEX
 
 /* Fortrn KIND number for DOUBLE COMPLEX */
-#define OMPI_KIND_FORTRAN_DOUBLE_COMPLEX 0
+#define OMPI_KIND_FORTRAN_DOUBLE_COMPLEX C_DOUBLE_COMPLEX
 
 /* Fortrn KIND number for DOUBLE PRECISION */
-#define OMPI_KIND_FORTRAN_DOUBLE_PRECISION 0
+#define OMPI_KIND_FORTRAN_DOUBLE_PRECISION C_DOUBLE
 
 /* Fortrn KIND number for INTEGER */
-#define OMPI_KIND_FORTRAN_INTEGER 0
+#define OMPI_KIND_FORTRAN_INTEGER C_INT
 
 /* Fortrn KIND number for INTEGER*1 */
-#define OMPI_KIND_FORTRAN_INTEGER1 0
+#define OMPI_KIND_FORTRAN_INTEGER1 C_SIGNED_CHAR
 
 /* Fortrn KIND number for INTEGER*16 */
 #define OMPI_KIND_FORTRAN_INTEGER16 0
 
 /* Fortrn KIND number for INTEGER*2 */
-#define OMPI_KIND_FORTRAN_INTEGER2 0
+#define OMPI_KIND_FORTRAN_INTEGER2 C_SHORT
 
 /* Fortrn KIND number for INTEGER*4 */
-#define OMPI_KIND_FORTRAN_INTEGER4 0
+#define OMPI_KIND_FORTRAN_INTEGER4 C_INT
 
 /* Fortrn KIND number for INTEGER*8 */
-#define OMPI_KIND_FORTRAN_INTEGER8 0
+#define OMPI_KIND_FORTRAN_INTEGER8 C_LONG_LONG
 
 /* Fortrn KIND number for LOGICAL */
-#define OMPI_KIND_FORTRAN_LOGICAL 0
+#define OMPI_KIND_FORTRAN_LOGICAL C_INT
 
 /* Fortrn KIND number for LOGICAL*1 */
-#define OMPI_KIND_FORTRAN_LOGICAL1 0
+#define OMPI_KIND_FORTRAN_LOGICAL1 C_SIGNED_CHAR
 
 /* Fortrn KIND number for LOGICAL*2 */
-#define OMPI_KIND_FORTRAN_LOGICAL2 0
+#define OMPI_KIND_FORTRAN_LOGICAL2 C_SHORT
 
 /* Fortrn KIND number for LOGICAL*4 */
-#define OMPI_KIND_FORTRAN_LOGICAL4 0
+#define OMPI_KIND_FORTRAN_LOGICAL4 C_INT
 
 /* Fortrn KIND number for LOGICAL*8 */
-#define OMPI_KIND_FORTRAN_LOGICAL8 0
+#define OMPI_KIND_FORTRAN_LOGICAL8 C_LONG_LONG
 
 /* Fortrn KIND number for REAL */
-#define OMPI_KIND_FORTRAN_REAL 0
+#define OMPI_KIND_FORTRAN_REAL C_FLOAT
 
 /* Fortrn KIND number for REAL*16 */
-#define OMPI_KIND_FORTRAN_REAL16 0
+#define OMPI_KIND_FORTRAN_REAL16 C_LONG_DOUBLE
 
 /* Fortrn KIND number for REAL*2 */
 #define OMPI_KIND_FORTRAN_REAL2 0
 
 /* Fortrn KIND number for REAL*4 */
-#define OMPI_KIND_FORTRAN_REAL4 0
+#define OMPI_KIND_FORTRAN_REAL4 C_FLOAT
 
 /* Fortrn KIND number for REAL*8 */
-#define OMPI_KIND_FORTRAN_REAL8 0
+#define OMPI_KIND_FORTRAN_REAL8 C_DOUBLE
 
 /* Major release number of Open MPI */
 #define OMPI_MAJOR_VERSION 4
@@ -2001,67 +2001,67 @@
 #define OMPI_RTE_PMIX 0
 
 /* Size of Fortran CHARACTER */
-#define OMPI_SIZEOF_FORTRAN_CHARACTER 4
+#define OMPI_SIZEOF_FORTRAN_CHARACTER 1
 
 /* Size of Fortran COMPLEX */
-#define OMPI_SIZEOF_FORTRAN_COMPLEX 4
+#define OMPI_SIZEOF_FORTRAN_COMPLEX 8
 
 /* Size of Fortran COMPLEX*16 */
-#define OMPI_SIZEOF_FORTRAN_COMPLEX16 4
+#define OMPI_SIZEOF_FORTRAN_COMPLEX16 16
 
 /* Size of Fortran COMPLEX*32 */
-#define OMPI_SIZEOF_FORTRAN_COMPLEX32 4
+#define OMPI_SIZEOF_FORTRAN_COMPLEX32 32
 
 /* Size of Fortran COMPLEX*4 */
 #define OMPI_SIZEOF_FORTRAN_COMPLEX4 4
 
 /* Size of Fortran COMPLEX*8 */
-#define OMPI_SIZEOF_FORTRAN_COMPLEX8 4
+#define OMPI_SIZEOF_FORTRAN_COMPLEX8 8
 
 /* Size of Fortran DOUBLE COMPLEX */
-#define OMPI_SIZEOF_FORTRAN_DOUBLE_COMPLEX 4
+#define OMPI_SIZEOF_FORTRAN_DOUBLE_COMPLEX 16
 
 /* Size of Fortran DOUBLE PRECISION */
-#define OMPI_SIZEOF_FORTRAN_DOUBLE_PRECISION 4
+#define OMPI_SIZEOF_FORTRAN_DOUBLE_PRECISION 8
 
 /* Size of Fortran INTEGER */
 #define OMPI_SIZEOF_FORTRAN_INTEGER 4
 
 /* Size of Fortran INTEGER*1 */
-#define OMPI_SIZEOF_FORTRAN_INTEGER1 4
+#define OMPI_SIZEOF_FORTRAN_INTEGER1 1
 
 /* Size of Fortran INTEGER*16 */
-#define OMPI_SIZEOF_FORTRAN_INTEGER16 4
+#define OMPI_SIZEOF_FORTRAN_INTEGER16 16
 
 /* Size of Fortran INTEGER*2 */
-#define OMPI_SIZEOF_FORTRAN_INTEGER2 4
+#define OMPI_SIZEOF_FORTRAN_INTEGER2 2
 
 /* Size of Fortran INTEGER*4 */
 #define OMPI_SIZEOF_FORTRAN_INTEGER4 4
 
 /* Size of Fortran INTEGER*8 */
-#define OMPI_SIZEOF_FORTRAN_INTEGER8 4
+#define OMPI_SIZEOF_FORTRAN_INTEGER8 8
 
 /* Size of Fortran LOGICAL */
 #define OMPI_SIZEOF_FORTRAN_LOGICAL 4
 
 /* Size of Fortran LOGICAL*1 */
-#define OMPI_SIZEOF_FORTRAN_LOGICAL1 4
+#define OMPI_SIZEOF_FORTRAN_LOGICAL1 1
 
 /* Size of Fortran LOGICAL*2 */
-#define OMPI_SIZEOF_FORTRAN_LOGICAL2 4
+#define OMPI_SIZEOF_FORTRAN_LOGICAL2 2
 
 /* Size of Fortran LOGICAL*4 */
 #define OMPI_SIZEOF_FORTRAN_LOGICAL4 4
 
 /* Size of Fortran LOGICAL*8 */
-#define OMPI_SIZEOF_FORTRAN_LOGICAL8 4
+#define OMPI_SIZEOF_FORTRAN_LOGICAL8 8
 
 /* Size of Fortran REAL */
 #define OMPI_SIZEOF_FORTRAN_REAL 4
 
 /* Size of Fortran REAL*16 */
-#define OMPI_SIZEOF_FORTRAN_REAL16 4
+#define OMPI_SIZEOF_FORTRAN_REAL16 16
 
 /* Size of Fortran REAL*2 */
 #define OMPI_SIZEOF_FORTRAN_REAL2 4
@@ -2070,7 +2070,7 @@
 #define OMPI_SIZEOF_FORTRAN_REAL4 4
 
 /* Size of Fortran REAL*8 */
-#define OMPI_SIZEOF_FORTRAN_REAL8 4
+#define OMPI_SIZEOF_FORTRAN_REAL8 8
 
 /* Tarball filename version string of Open MPI */
 #define OMPI_TARBALL_VERSION "4.0.5"
@@ -2907,7 +2907,7 @@
 #define WRAPPER_EXTRA_CXXFLAGS_PREFIX ""
 
 /* Additional FCFLAGS to pass through the wrapper compilers */
-#define WRAPPER_EXTRA_FCFLAGS " "
+#define WRAPPER_EXTRA_FCFLAGS "-Wl,-flat_namespace -Wl,-commons,use_dylibs  -I${libdir}"
 
 /* Additional FCFLAGS to pass through the wrapper compilers */
 #define WRAPPER_EXTRA_FCFLAGS_PREFIX ""
@@ -2916,7 +2916,7 @@
 #define WRAPPER_EXTRA_LDFLAGS "  "
 
 /* Additional LIBS to pass through the wrapper compilers */
-#define WRAPPER_EXTRA_LIBS "-lm  -lz"
+#define WRAPPER_EXTRA_LIBS "-lhwloc -levent_core -levent_pthreads  -lz"
 
 /* Whether the wrapper compilers add rpath flags by default */
 #define WRAPPER_RPATH_SUPPORT "unnecessary"
@@ -2957,7 +2957,7 @@
 #define ompi_fortran_bogus_type_t int
 
 /* C type corresponding to Fortran CHARACTER */
-#define ompi_fortran_character_t ompi_fortran_bogus_type_t
+#define ompi_fortran_character_t char
 
 /* C type corresponding to Fortran COMPLEX*16 */
 /* #undef ompi_fortran_complex16_t */
@@ -2978,55 +2978,55 @@
 /* #undef ompi_fortran_double_complex_t */
 
 /* C type corresponding to Fortran DOUBLE PRECISION */
-#define ompi_fortran_double_precision_t ompi_fortran_bogus_type_t
+#define ompi_fortran_double_precision_t double
 
 /* C type corresponding to Fortran INTEGER*16 */
-#define ompi_fortran_integer16_t ompi_fortran_bogus_type_t
+#define ompi_fortran_integer16_t 
 
 /* C type corresponding to Fortran INTEGER*1 */
-#define ompi_fortran_integer1_t ompi_fortran_bogus_type_t
+#define ompi_fortran_integer1_t char
 
 /* C type corresponding to Fortran INTEGER*2 */
-#define ompi_fortran_integer2_t ompi_fortran_bogus_type_t
+#define ompi_fortran_integer2_t short
 
 /* C type corresponding to Fortran INTEGER*4 */
-#define ompi_fortran_integer4_t ompi_fortran_bogus_type_t
+#define ompi_fortran_integer4_t int
 
 /* C type corresponding to Fortran INTEGER*8 */
-#define ompi_fortran_integer8_t ompi_fortran_bogus_type_t
+#define ompi_fortran_integer8_t long long
 
 /* C type corresponding to Fortran INTEGER */
-#define ompi_fortran_integer_t ompi_fortran_bogus_type_t
+#define ompi_fortran_integer_t int
 
 /* C type corresponding to Fortran LOGICAL*1 */
-#define ompi_fortran_logical1_t ompi_fortran_bogus_type_t
+#define ompi_fortran_logical1_t char
 
 /* C type corresponding to Fortran LOGICAL*2 */
-#define ompi_fortran_logical2_t ompi_fortran_bogus_type_t
+#define ompi_fortran_logical2_t short
 
 /* C type corresponding to Fortran LOGICAL*4 */
-#define ompi_fortran_logical4_t ompi_fortran_bogus_type_t
+#define ompi_fortran_logical4_t int
 
 /* C type corresponding to Fortran LOGICAL*8 */
-#define ompi_fortran_logical8_t ompi_fortran_bogus_type_t
+#define ompi_fortran_logical8_t long long
 
 /* C type corresponding to Fortran LOGICAL */
-#define ompi_fortran_logical_t ompi_fortran_bogus_type_t
+#define ompi_fortran_logical_t int
 
 /* C type corresponding to Fortran REAL*16 */
-#define ompi_fortran_real16_t ompi_fortran_bogus_type_t
+#define ompi_fortran_real16_t long double
 
 /* C type corresponding to Fortran REAL*2 */
 #define ompi_fortran_real2_t ompi_fortran_bogus_type_t
 
 /* C type corresponding to Fortran REAL*4 */
-#define ompi_fortran_real4_t ompi_fortran_bogus_type_t
+#define ompi_fortran_real4_t float
 
 /* C type corresponding to Fortran REAL*8 */
-#define ompi_fortran_real8_t ompi_fortran_bogus_type_t
+#define ompi_fortran_real8_t double
 
 /* C type corresponding to Fortran REAL */
-#define ompi_fortran_real_t ompi_fortran_bogus_type_t
+#define ompi_fortran_real_t float
 
 
 #include "opal_config_bottom.h"

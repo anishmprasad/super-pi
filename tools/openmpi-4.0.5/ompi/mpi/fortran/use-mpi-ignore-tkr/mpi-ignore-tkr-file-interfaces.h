@@ -352,8 +352,8 @@ interface MPI_File_iread
 subroutine MPI_File_iread(fh, buf, count, datatype, request&
         , ierror)
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -367,8 +367,8 @@ interface PMPI_File_iread
 subroutine PMPI_File_iread(fh, buf, count, datatype, request&
         , ierror)
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -382,8 +382,8 @@ interface MPI_File_iread_all
 subroutine MPI_File_iread_all(fh, buf, count, datatype, request&
         , ierror)
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -397,8 +397,8 @@ interface PMPI_File_iread_all
 subroutine PMPI_File_iread_all(fh, buf, count, datatype, request&
         , ierror)
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -414,8 +414,8 @@ subroutine MPI_File_iread_at(fh, offset, buf, count, datatype, &
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -431,8 +431,8 @@ subroutine PMPI_File_iread_at(fh, offset, buf, count, datatype, &
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -448,8 +448,8 @@ subroutine MPI_File_iread_at_all(fh, offset, buf, count, datatype, &
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -465,8 +465,8 @@ subroutine PMPI_File_iread_at_all(fh, offset, buf, count, datatype, &
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -480,8 +480,8 @@ interface MPI_File_iread_shared
 subroutine MPI_File_iread_shared(fh, buf, count, datatype, request&
         , ierror)
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -495,8 +495,8 @@ interface PMPI_File_iread_shared
 subroutine PMPI_File_iread_shared(fh, buf, count, datatype, request&
         , ierror)
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -511,8 +511,8 @@ interface MPI_File_iwrite
 subroutine MPI_File_iwrite(fh, buf, count, datatype, request&
         , ierror)
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -526,8 +526,8 @@ interface PMPI_File_iwrite
 subroutine PMPI_File_iwrite(fh, buf, count, datatype, request&
         , ierror)
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -541,8 +541,8 @@ interface MPI_File_iwrite_all
 subroutine MPI_File_iwrite_all(fh, buf, count, datatype, request&
         , ierror)
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -556,8 +556,8 @@ interface PMPI_File_iwrite_all
 subroutine PMPI_File_iwrite_all(fh, buf, count, datatype, request&
         , ierror)
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -573,8 +573,8 @@ subroutine MPI_File_iwrite_at(fh, offset, buf, count, datatype, &
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -590,8 +590,8 @@ subroutine PMPI_File_iwrite_at(fh, offset, buf, count, datatype, &
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -607,8 +607,8 @@ subroutine MPI_File_iwrite_at_all(fh, offset, buf, count, datatype, &
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -624,8 +624,8 @@ subroutine PMPI_File_iwrite_at_all(fh, offset, buf, count, datatype, &
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -639,8 +639,8 @@ interface MPI_File_iwrite_shared
 subroutine MPI_File_iwrite_shared(fh, buf, count, datatype, request&
         , ierror)
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -654,8 +654,8 @@ interface PMPI_File_iwrite_shared
 subroutine PMPI_File_iwrite_shared(fh, buf, count, datatype, request&
         , ierror)
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: request
@@ -723,8 +723,8 @@ subroutine MPI_File_read(fh, buf, count, datatype, status&
         , ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -739,8 +739,8 @@ subroutine PMPI_File_read(fh, buf, count, datatype, status&
         , ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -756,8 +756,8 @@ subroutine MPI_File_read_all(fh, buf, count, datatype, status&
         , ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -772,8 +772,8 @@ subroutine PMPI_File_read_all(fh, buf, count, datatype, status&
         , ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -787,8 +787,8 @@ interface MPI_File_read_all_begin
 
 subroutine MPI_File_read_all_begin(fh, buf, count, datatype, ierror)
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: ierror
@@ -800,8 +800,8 @@ interface PMPI_File_read_all_begin
 
 subroutine PMPI_File_read_all_begin(fh, buf, count, datatype, ierror)
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: ierror
@@ -815,8 +815,8 @@ interface MPI_File_read_all_end
 subroutine MPI_File_read_all_end(fh, buf, status, ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
   integer, intent(out) :: ierror
 end subroutine MPI_File_read_all_end
@@ -828,8 +828,8 @@ interface PMPI_File_read_all_end
 subroutine PMPI_File_read_all_end(fh, buf, status, ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
   integer, intent(out) :: ierror
 end subroutine PMPI_File_read_all_end
@@ -844,8 +844,8 @@ subroutine MPI_File_read_at(fh, offset, buf, count, datatype, &
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -861,8 +861,8 @@ subroutine PMPI_File_read_at(fh, offset, buf, count, datatype, &
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -879,8 +879,8 @@ subroutine MPI_File_read_at_all(fh, offset, buf, count, datatype, &
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -896,8 +896,8 @@ subroutine PMPI_File_read_at_all(fh, offset, buf, count, datatype, &
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -914,8 +914,8 @@ subroutine MPI_File_read_at_all_begin(fh, offset, buf, count, datatype&
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: ierror
@@ -930,8 +930,8 @@ subroutine PMPI_File_read_at_all_begin(fh, offset, buf, count, datatype&
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: ierror
@@ -945,8 +945,8 @@ interface MPI_File_read_at_all_end
 subroutine MPI_File_read_at_all_end(fh, buf, status, ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
   integer, intent(out) :: ierror
 end subroutine MPI_File_read_at_all_end
@@ -958,8 +958,8 @@ interface PMPI_File_read_at_all_end
 subroutine PMPI_File_read_at_all_end(fh, buf, status, ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
   integer, intent(out) :: ierror
 end subroutine PMPI_File_read_at_all_end
@@ -973,8 +973,8 @@ subroutine MPI_File_read_ordered(fh, buf, count, datatype, status&
         , ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -989,8 +989,8 @@ subroutine PMPI_File_read_ordered(fh, buf, count, datatype, status&
         , ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -1004,8 +1004,8 @@ interface MPI_File_read_ordered_begin
 
 subroutine MPI_File_read_ordered_begin(fh, buf, count, datatype, ierror)
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: ierror
@@ -1017,8 +1017,8 @@ interface PMPI_File_read_ordered_begin
 
 subroutine PMPI_File_read_ordered_begin(fh, buf, count, datatype, ierror)
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: ierror
@@ -1032,8 +1032,8 @@ interface MPI_File_read_ordered_end
 subroutine MPI_File_read_ordered_end(fh, buf, status, ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
   integer, intent(out) :: ierror
 end subroutine MPI_File_read_ordered_end
@@ -1045,8 +1045,8 @@ interface PMPI_File_read_ordered_end
 subroutine PMPI_File_read_ordered_end(fh, buf, status, ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
   integer, intent(out) :: ierror
 end subroutine PMPI_File_read_ordered_end
@@ -1060,8 +1060,8 @@ subroutine MPI_File_read_shared(fh, buf, count, datatype, status&
         , ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -1076,8 +1076,8 @@ subroutine PMPI_File_read_shared(fh, buf, count, datatype, status&
         , ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -1281,8 +1281,8 @@ subroutine MPI_File_write(fh, buf, count, datatype, status&
         , ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -1297,8 +1297,8 @@ subroutine PMPI_File_write(fh, buf, count, datatype, status&
         , ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -1314,8 +1314,8 @@ subroutine MPI_File_write_all(fh, buf, count, datatype, status&
         , ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -1330,8 +1330,8 @@ subroutine PMPI_File_write_all(fh, buf, count, datatype, status&
         , ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -1345,8 +1345,8 @@ interface MPI_File_write_all_begin
 
 subroutine MPI_File_write_all_begin(fh, buf, count, datatype, ierror)
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: ierror
@@ -1358,8 +1358,8 @@ interface PMPI_File_write_all_begin
 
 subroutine PMPI_File_write_all_begin(fh, buf, count, datatype, ierror)
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: ierror
@@ -1373,8 +1373,8 @@ interface MPI_File_write_all_end
 subroutine MPI_File_write_all_end(fh, buf, status, ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
   integer, intent(out) :: ierror
 end subroutine MPI_File_write_all_end
@@ -1386,8 +1386,8 @@ interface PMPI_File_write_all_end
 subroutine PMPI_File_write_all_end(fh, buf, status, ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
   integer, intent(out) :: ierror
 end subroutine PMPI_File_write_all_end
@@ -1402,8 +1402,8 @@ subroutine MPI_File_write_at(fh, offset, buf, count, datatype, &
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -1419,8 +1419,8 @@ subroutine PMPI_File_write_at(fh, offset, buf, count, datatype, &
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -1437,8 +1437,8 @@ subroutine MPI_File_write_at_all(fh, offset, buf, count, datatype, &
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -1454,8 +1454,8 @@ subroutine PMPI_File_write_at_all(fh, offset, buf, count, datatype, &
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -1472,8 +1472,8 @@ subroutine MPI_File_write_at_all_begin(fh, offset, buf, count, datatype&
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: ierror
@@ -1488,8 +1488,8 @@ subroutine PMPI_File_write_at_all_begin(fh, offset, buf, count, datatype&
   include 'mpif-config.h'
   integer, intent(in) :: fh
   integer(kind=MPI_OFFSET_KIND), intent(in) :: offset
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: ierror
@@ -1503,8 +1503,8 @@ interface MPI_File_write_at_all_end
 subroutine MPI_File_write_at_all_end(fh, buf, status, ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
   integer, intent(out) :: ierror
 end subroutine MPI_File_write_at_all_end
@@ -1516,8 +1516,8 @@ interface PMPI_File_write_at_all_end
 subroutine PMPI_File_write_at_all_end(fh, buf, status, ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
   integer, intent(out) :: ierror
 end subroutine PMPI_File_write_at_all_end
@@ -1531,8 +1531,8 @@ subroutine MPI_File_write_ordered(fh, buf, count, datatype, status&
         , ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -1547,8 +1547,8 @@ subroutine PMPI_File_write_ordered(fh, buf, count, datatype, status&
         , ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -1562,8 +1562,8 @@ interface MPI_File_write_ordered_begin
 
 subroutine MPI_File_write_ordered_begin(fh, buf, count, datatype, ierror)
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: ierror
@@ -1575,8 +1575,8 @@ interface PMPI_File_write_ordered_begin
 
 subroutine PMPI_File_write_ordered_begin(fh, buf, count, datatype, ierror)
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(out) :: ierror
@@ -1590,8 +1590,8 @@ interface MPI_File_write_ordered_end
 subroutine MPI_File_write_ordered_end(fh, buf, status, ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
   integer, intent(out) :: ierror
 end subroutine MPI_File_write_ordered_end
@@ -1603,8 +1603,8 @@ interface PMPI_File_write_ordered_end
 subroutine PMPI_File_write_ordered_end(fh, buf, status, ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
   integer, intent(out) :: ierror
 end subroutine PMPI_File_write_ordered_end
@@ -1618,8 +1618,8 @@ subroutine MPI_File_write_shared(fh, buf, count, datatype, status&
         , ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status
@@ -1634,8 +1634,8 @@ subroutine PMPI_File_write_shared(fh, buf, count, datatype, status&
         , ierror)
   include 'mpif-config.h'
   integer, intent(in) :: fh
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, dimension(MPI_STATUS_SIZE), intent(out) :: status

@@ -21,7 +21,7 @@ linker_flags=
 # pulled in implicitly) because we intend MPI applications to only use
 # the MPI API.
 libs= -lmpi
-libs_static= -lmpi -lopen-rte -lopen-pal -lm  -lz
+libs_static= -lmpi -lopen-rte -lopen-pal -lhwloc -levent_core -levent_pthreads  -lz
 dyn_lib_file=libmpi.dylib
 static_lib_file=libmpi.a
 required_file=

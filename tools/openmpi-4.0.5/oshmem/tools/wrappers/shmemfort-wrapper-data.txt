@@ -21,16 +21,16 @@ version=4.0.5
 language=Fortran
 compiler_env=FC
 compiler_flags_env=FCFLAGS
-compiler=
+compiler=gfortran
 preprocessor_flags=
-compiler_flags= 
+compiler_flags=-Wl,-flat_namespace -Wl,-commons,use_dylibs  -I${libdir}
 linker_flags=  
 # Note that per https://svn.open-mpi.org/trac/ompi/ticket/3422, we
 # intentionally only link in the SHMEM and MPI libraries (ORTE, OPAL,
 # etc. are pulled in implicitly) because we intend SHMEM/MPI
 # applications to only use the SHMEM and MPI APIs.
 libs=-loshmem -lmpi_mpifh -lmpi
-libs_static=-loshmem -lmpi_mpifh -lmpi -lopen-rte -lopen-pal -lm  -lz
+libs_static=-loshmem -lmpi_mpifh -lmpi -lopen-rte -lopen-pal -lhwloc -levent_core -levent_pthreads  -lz
 dyn_lib_file=liboshmem.dylib
 static_lib_file=liboshmem.a
 required_file=

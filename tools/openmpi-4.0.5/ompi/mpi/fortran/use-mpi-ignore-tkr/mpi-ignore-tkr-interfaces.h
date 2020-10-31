@@ -44,8 +44,8 @@ interface MPI_Accumulate
 subroutine MPI_Accumulate(origin_addr, origin_count, origin_datatype, target_rank, target_disp, &
         target_count, target_datatype, op, win, ierror)
   include 'mpif-config.h'
-   origin_addr
-  , intent(in) :: origin_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr
+  type(*), dimension(*), intent(in) :: origin_addr
   integer, intent(in) :: origin_count
   integer, intent(in) :: origin_datatype
   integer, intent(in) :: target_rank
@@ -64,8 +64,8 @@ interface PMPI_Accumulate
 subroutine PMPI_Accumulate(origin_addr, origin_count, origin_datatype, target_rank, target_disp, &
         target_count, target_datatype, op, win, ierror)
   include 'mpif-config.h'
-   origin_addr
-  , intent(in) :: origin_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr
+  type(*), dimension(*), intent(in) :: origin_addr
   integer, intent(in) :: origin_count
   integer, intent(in) :: origin_datatype
   integer, intent(in) :: target_rank
@@ -191,12 +191,12 @@ interface MPI_Allgather
 
 subroutine MPI_Allgather(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: comm
@@ -209,12 +209,12 @@ interface PMPI_Allgather
 
 subroutine PMPI_Allgather(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: comm
@@ -228,12 +228,12 @@ interface MPI_Allgatherv
 
 subroutine MPI_Allgatherv(sendbuf, sendcount, sendtype, recvbuf, recvcounts, &
         displs, recvtype, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: displs
   integer, intent(in) :: recvtype
@@ -247,12 +247,12 @@ interface PMPI_Allgatherv
 
 subroutine PMPI_Allgatherv(sendbuf, sendcount, sendtype, recvbuf, recvcounts, &
         displs, recvtype, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: displs
   integer, intent(in) :: recvtype
@@ -310,10 +310,10 @@ interface MPI_Allreduce
 
 subroutine MPI_Allreduce(sendbuf, recvbuf, count, datatype, op, &
         comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -327,10 +327,10 @@ interface PMPI_Allreduce
 
 subroutine PMPI_Allreduce(sendbuf, recvbuf, count, datatype, op, &
         comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -345,12 +345,12 @@ interface MPI_Alltoall
 
 subroutine MPI_Alltoall(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: comm
@@ -363,12 +363,12 @@ interface PMPI_Alltoall
 
 subroutine PMPI_Alltoall(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: comm
@@ -382,13 +382,13 @@ interface MPI_Alltoallv
 
 subroutine MPI_Alltoallv(sendbuf, sendcounts, sdispls, sendtype, recvbuf, &
         recvcounts, rdispls, recvtype, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer, dimension(*), intent(in) :: sdispls
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: rdispls
   integer, intent(in) :: recvtype
@@ -402,13 +402,13 @@ interface PMPI_Alltoallv
 
 subroutine PMPI_Alltoallv(sendbuf, sendcounts, sdispls, sendtype, recvbuf, &
         recvcounts, rdispls, recvtype, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer, dimension(*), intent(in) :: sdispls
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: rdispls
   integer, intent(in) :: recvtype
@@ -423,13 +423,13 @@ interface MPI_Alltoallw
 
 subroutine MPI_Alltoallw(sendbuf, sendcounts, sdispls, sendtypes, recvbuf, &
         recvcounts, rdispls, recvtypes, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer, dimension(*), intent(in) :: sdispls
   integer, dimension(*), intent(in) :: sendtypes
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: rdispls
   integer, dimension(*), intent(in) :: recvtypes
@@ -443,13 +443,13 @@ interface PMPI_Alltoallw
 
 subroutine PMPI_Alltoallw(sendbuf, sendcounts, sdispls, sendtypes, recvbuf, &
         recvcounts, rdispls, recvtypes, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer, dimension(*), intent(in) :: sdispls
   integer, dimension(*), intent(in) :: sendtypes
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: rdispls
   integer, dimension(*), intent(in) :: recvtypes
@@ -483,8 +483,8 @@ interface MPI_Bcast
 
 subroutine MPI_Bcast(buffer, count, datatype, root, comm&
         , ierror)
-   buffer
-   :: buffer
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buffer
+  type(*), dimension(*) :: buffer
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: root
@@ -498,8 +498,8 @@ interface PMPI_Bcast
 
 subroutine PMPI_Bcast(buffer, count, datatype, root, comm&
         , ierror)
-   buffer
-   :: buffer
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buffer
+  type(*), dimension(*) :: buffer
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: root
@@ -514,8 +514,8 @@ interface MPI_Bsend
 
 subroutine MPI_Bsend(buf, count, datatype, dest, tag, &
         comm, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -530,8 +530,8 @@ interface PMPI_Bsend
 
 subroutine PMPI_Bsend(buf, count, datatype, dest, tag, &
         comm, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -547,8 +547,8 @@ interface MPI_Bsend_init
 
 subroutine MPI_Bsend_init(buf, count, datatype, dest, tag, &
         comm, request, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -564,8 +564,8 @@ interface PMPI_Bsend_init
 
 subroutine PMPI_Bsend_init(buf, count, datatype, dest, tag, &
         comm, request, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -581,8 +581,8 @@ end interface
 interface MPI_Buffer_attach
 
 subroutine MPI_Buffer_attach(buffer, size, ierror)
-   buffer
-  , intent(in) :: buffer
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buffer
+  type(*), dimension(*), intent(in) :: buffer
   integer, intent(in) :: size
   integer, intent(out) :: ierror
 end subroutine MPI_Buffer_attach
@@ -592,8 +592,8 @@ end interface
 interface PMPI_Buffer_attach
 
 subroutine PMPI_Buffer_attach(buffer, size, ierror)
-   buffer
-  , intent(in) :: buffer
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buffer
+  type(*), dimension(*), intent(in) :: buffer
   integer, intent(in) :: size
   integer, intent(out) :: ierror
 end subroutine PMPI_Buffer_attach
@@ -604,8 +604,8 @@ end interface
 interface MPI_Buffer_detach
 
 subroutine MPI_Buffer_detach(buffer, size, ierror)
-   buffer
-   :: buffer
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buffer
+  type(*), dimension(*) :: buffer
   integer, intent(out) :: size
   integer, intent(out) :: ierror
 end subroutine MPI_Buffer_detach
@@ -615,8 +615,8 @@ end interface
 interface PMPI_Buffer_detach
 
 subroutine PMPI_Buffer_detach(buffer, size, ierror)
-   buffer
-   :: buffer
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buffer
+  type(*), dimension(*) :: buffer
   integer, intent(out) :: size
   integer, intent(out) :: ierror
 end subroutine PMPI_Buffer_detach
@@ -1692,10 +1692,10 @@ interface MPI_Compare_and_swap
 subroutine MPI_Compare_and_swap(origin_addr, compare_addr, result_addr, &
                                 datatype, target_rank, target_disp, win, ierror)
   include 'mpif-config.h'
-   origin_addr, compare_addr
-  , intent(in) :: origin_addr, compare_addr
-   result_addr
-   :: result_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr, compare_addr
+  type(*), dimension(*), intent(in) :: origin_addr, compare_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: result_addr
+  type(*), dimension(*) :: result_addr
   integer, intent(in) :: datatype
   integer, intent(in) :: target_rank
   integer(kind=MPI_ADDRESS_KIND), intent(in) :: target_disp
@@ -1710,10 +1710,10 @@ interface PMPI_Compare_and_swap
 subroutine PMPI_Compare_and_swap(origin_addr, compare_addr, result_addr, &
                                  datatype, target_rank, target_disp, win, ierror)
   include 'mpif-config.h'
-   origin_addr, compare_addr
-  , intent(in) :: origin_addr, compare_addr
-   result_addr
-   :: result_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr, compare_addr
+  type(*), dimension(*), intent(in) :: origin_addr, compare_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: result_addr
+  type(*), dimension(*) :: result_addr
   integer, intent(in) :: datatype
   integer, intent(in) :: target_rank
   integer(kind=MPI_ADDRESS_KIND), intent(in) :: target_disp
@@ -1934,10 +1934,10 @@ interface MPI_Exscan
 
 subroutine MPI_Exscan(sendbuf, recvbuf, count, datatype, op, &
         comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -1951,10 +1951,10 @@ interface PMPI_Exscan
 
 subroutine PMPI_Exscan(sendbuf, recvbuf, count, datatype, op, &
         comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -1968,8 +1968,8 @@ end interface
 interface MPI_F_sync_reg
 
 subroutine MPI_F_sync_reg(buf)
-   buf
-  , intent(inout) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(inout) :: buf
 end subroutine MPI_F_sync_reg
 
 end interface
@@ -1977,8 +1977,8 @@ end interface
 interface PMPI_F_sync_reg
 
 subroutine PMPI_F_sync_reg(buf)
-   buf
-  , intent(inout) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(inout) :: buf
 end subroutine PMPI_F_sync_reg
 
 end interface
@@ -1989,10 +1989,10 @@ interface MPI_Fetch_and_op
 subroutine MPI_Fetch_and_op(origin_addr, result_addr, datatype, target_rank,&
                             target_disp, op, win, ierror)
   include 'mpif-config.h'
-   origin_addr
-  , intent(in) :: origin_addr
-   result_addr
-   :: result_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr
+  type(*), dimension(*), intent(in) :: origin_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: result_addr
+  type(*), dimension(*) :: result_addr
   integer, intent(in) :: datatype
   integer, intent(in) :: target_rank
   integer(kind=MPI_ADDRESS_KIND), intent(in) :: target_disp
@@ -2008,10 +2008,10 @@ interface PMPI_Fetch_and_op
 subroutine PMPI_Fetch_and_op(origin_addr, result_addr, datatype, target_rank,&
                              target_disp, op, win, ierror)
   include 'mpif-config.h'
-   origin_addr
-  , intent(in) :: origin_addr
-   result_addr
-   :: result_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr
+  type(*), dimension(*), intent(in) :: origin_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: result_addr
+  type(*), dimension(*) :: result_addr
   integer, intent(in) :: datatype
   integer, intent(in) :: target_rank
   integer(kind=MPI_ADDRESS_KIND), intent(in) :: target_disp
@@ -2062,8 +2062,8 @@ end interface
 interface MPI_Free_mem
 
 subroutine MPI_Free_mem(base, ierror)
-   base
-  , intent(in) :: base
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: base
+  type(*), dimension(*), intent(in) :: base
   integer, intent(out) :: ierror
 end subroutine MPI_Free_mem
 
@@ -2072,8 +2072,8 @@ end interface
 interface PMPI_Free_mem
 
 subroutine PMPI_Free_mem(base, ierror)
-   base
-  , intent(in) :: base
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: base
+  type(*), dimension(*), intent(in) :: base
   integer, intent(out) :: ierror
 end subroutine PMPI_Free_mem
 
@@ -2084,12 +2084,12 @@ interface MPI_Gather
 
 subroutine MPI_Gather(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, root, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: root
@@ -2103,12 +2103,12 @@ interface PMPI_Gather
 
 subroutine PMPI_Gather(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, root, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: root
@@ -2123,12 +2123,12 @@ interface MPI_Gatherv
 
 subroutine MPI_Gatherv(sendbuf, sendcount, sendtype, recvbuf, recvcounts, &
         displs, recvtype, root, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: displs
   integer, intent(in) :: recvtype
@@ -2143,12 +2143,12 @@ interface PMPI_Gatherv
 
 subroutine PMPI_Gatherv(sendbuf, sendcount, sendtype, recvbuf, recvcounts, &
         displs, recvtype, root, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: displs
   integer, intent(in) :: recvtype
@@ -2165,8 +2165,8 @@ interface MPI_Get
 subroutine MPI_Get(origin_addr, origin_count, origin_datatype, target_rank, target_disp, &
         target_count, target_datatype, win, ierror)
   include 'mpif-config.h'
-   origin_addr
-   :: origin_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr
+  type(*), dimension(*) :: origin_addr
   integer, intent(in) :: origin_count
   integer, intent(in) :: origin_datatype
   integer, intent(in) :: target_rank
@@ -2184,8 +2184,8 @@ interface PMPI_Get
 subroutine PMPI_Get(origin_addr, origin_count, origin_datatype, target_rank, target_disp, &
         target_count, target_datatype, win, ierror)
   include 'mpif-config.h'
-   origin_addr
-   :: origin_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr
+  type(*), dimension(*) :: origin_addr
   integer, intent(in) :: origin_count
   integer, intent(in) :: origin_datatype
   integer, intent(in) :: target_rank
@@ -2206,12 +2206,12 @@ subroutine MPI_Get_accumulate(origin_addr, origin_count, origin_datatype,&
                               target_rank, target_disp, target_count, &
                               target_datatype, op, win, ierror)
   include 'mpif-config.h'
-   origin_addr
-  , intent(in) :: origin_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr
+  type(*), dimension(*), intent(in) :: origin_addr
   integer, intent(in) :: origin_count
   integer, intent(in) :: origin_datatype
-   result_addr
-   :: result_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: result_addr
+  type(*), dimension(*) :: result_addr
   integer, intent(in) :: result_count
   integer, intent(in) :: result_datatype
   integer, intent(in) :: target_rank
@@ -2232,12 +2232,12 @@ subroutine PMPI_Get_accumulate(origin_addr, origin_count, origin_datatype,&
                                target_rank, target_disp, target_count, &
                                target_datatype, op, win, ierror)
   include 'mpif-config.h'
-   origin_addr
-  , intent(in) :: origin_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr
+  type(*), dimension(*), intent(in) :: origin_addr
   integer, intent(in) :: origin_count
   integer, intent(in) :: origin_datatype
-   result_addr
-   :: result_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: result_addr
+  type(*), dimension(*) :: result_addr
   integer, intent(in) :: result_count
   integer, intent(in) :: result_datatype
   integer, intent(in) :: target_rank
@@ -2256,8 +2256,8 @@ interface MPI_Get_address
 
 subroutine MPI_Get_address(location, address, ierror)
   include 'mpif-config.h'
-   location
-  , intent(in) :: location
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: location
+  type(*), dimension(*), intent(in) :: location
   integer(kind=MPI_ADDRESS_KIND), intent(out) :: address
   integer, intent(out) :: ierror
 end subroutine MPI_Get_address
@@ -2268,8 +2268,8 @@ interface PMPI_Get_address
 
 subroutine PMPI_Get_address(location, address, ierror)
   include 'mpif-config.h'
-   location
-  , intent(in) :: location
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: location
+  type(*), dimension(*), intent(in) :: location
   integer(kind=MPI_ADDRESS_KIND), intent(out) :: address
   integer, intent(out) :: ierror
 end subroutine PMPI_Get_address
@@ -2911,12 +2911,12 @@ interface MPI_Iallgather
 
 subroutine MPI_Iallgather(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: comm
@@ -2930,12 +2930,12 @@ interface PMPI_Iallgather
 
 subroutine PMPI_Iallgather(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: comm
@@ -2950,12 +2950,12 @@ interface MPI_Iallgatherv
 
 subroutine MPI_Iallgatherv(sendbuf, sendcount, sendtype, recvbuf, recvcounts, &
         displs, recvtype, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: displs
   integer, intent(in) :: recvtype
@@ -2970,12 +2970,12 @@ interface PMPI_Iallgatherv
 
 subroutine PMPI_Iallgatherv(sendbuf, sendcount, sendtype, recvbuf, recvcounts, &
         displs, recvtype, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: displs
   integer, intent(in) :: recvtype
@@ -2991,10 +2991,10 @@ interface MPI_Iallreduce
 
 subroutine MPI_Iallreduce(sendbuf, recvbuf, count, datatype, op, &
         comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -3009,10 +3009,10 @@ interface PMPI_Iallreduce
 
 subroutine PMPI_Iallreduce(sendbuf, recvbuf, count, datatype, op, &
         comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -3028,12 +3028,12 @@ interface MPI_Ialltoall
 
 subroutine MPI_Ialltoall(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: comm
@@ -3047,12 +3047,12 @@ interface PMPI_Ialltoall
 
 subroutine PMPI_Ialltoall(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: comm
@@ -3067,13 +3067,13 @@ interface MPI_Ialltoallv
 
 subroutine MPI_Ialltoallv(sendbuf, sendcounts, sdispls, sendtype, recvbuf, &
         recvcounts, rdispls, recvtype, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer, dimension(*), intent(in) :: sdispls
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: rdispls
   integer, intent(in) :: recvtype
@@ -3088,13 +3088,13 @@ interface PMPI_Ialltoallv
 
 subroutine PMPI_Ialltoallv(sendbuf, sendcounts, sdispls, sendtype, recvbuf, &
         recvcounts, rdispls, recvtype, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer, dimension(*), intent(in) :: sdispls
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: rdispls
   integer, intent(in) :: recvtype
@@ -3110,13 +3110,13 @@ interface MPI_Ialltoallw
 
 subroutine MPI_Ialltoallw(sendbuf, sendcounts, sdispls, sendtypes, recvbuf, &
         recvcounts, rdispls, recvtypes, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer, dimension(*), intent(in) :: sdispls
   integer, dimension(*), intent(in) :: sendtypes
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: rdispls
   integer, dimension(*), intent(in) :: recvtypes
@@ -3131,13 +3131,13 @@ interface PMPI_Ialltoallw
 
 subroutine PMPI_Ialltoallw(sendbuf, sendcounts, sdispls, sendtypes, recvbuf, &
         recvcounts, rdispls, recvtypes, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer, dimension(*), intent(in) :: sdispls
   integer, dimension(*), intent(in) :: sendtypes
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: rdispls
   integer, dimension(*), intent(in) :: recvtypes
@@ -3174,8 +3174,8 @@ interface MPI_Ibcast
 
 subroutine MPI_Ibcast(buffer, count, datatype, root, comm&
         , request, ierror)
-   buffer
-   :: buffer
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buffer
+  type(*), dimension(*) :: buffer
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: root
@@ -3190,8 +3190,8 @@ interface PMPI_Ibcast
 
 subroutine PMPI_Ibcast(buffer, count, datatype, root, comm&
         , request, ierror)
-   buffer
-   :: buffer
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buffer
+  type(*), dimension(*) :: buffer
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: root
@@ -3207,8 +3207,8 @@ interface MPI_Ibsend
 
 subroutine MPI_Ibsend(buf, count, datatype, dest, tag, &
         comm, request, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -3224,8 +3224,8 @@ interface PMPI_Ibsend
 
 subroutine PMPI_Ibsend(buf, count, datatype, dest, tag, &
         comm, request, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -3242,10 +3242,10 @@ interface MPI_Iexscan
 
 subroutine MPI_Iexscan(sendbuf, recvbuf, count, datatype, op, &
         comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -3260,10 +3260,10 @@ interface PMPI_Iexscan
 
 subroutine PMPI_Iexscan(sendbuf, recvbuf, count, datatype, op, &
         comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -3279,12 +3279,12 @@ interface MPI_Igather
 
 subroutine MPI_Igather(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, root, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: root
@@ -3299,12 +3299,12 @@ interface PMPI_Igather
 
 subroutine PMPI_Igather(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, root, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: root
@@ -3320,12 +3320,12 @@ interface MPI_Igatherv
 
 subroutine MPI_Igatherv(sendbuf, sendcount, sendtype, recvbuf, recvcounts, &
         displs, recvtype, root, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: displs
   integer, intent(in) :: recvtype
@@ -3341,12 +3341,12 @@ interface PMPI_Igatherv
 
 subroutine PMPI_Igatherv(sendbuf, sendcount, sendtype, recvbuf, recvcounts, &
         displs, recvtype, root, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: displs
   integer, intent(in) :: recvtype
@@ -3393,8 +3393,8 @@ end interface
 interface MPI_Imrecv
 
 subroutine MPI_Imrecv(buf, count, datatype, message, request, ierror)
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(inout) :: message
@@ -3407,8 +3407,8 @@ end interface
 interface PMPI_Imrecv
 
 subroutine PMPI_Imrecv(buf, count, datatype, message, request, ierror)
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(inout) :: message
@@ -3423,12 +3423,12 @@ interface MPI_Ineighbor_allgather
 
 subroutine MPI_Ineighbor_allgather(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: comm
@@ -3442,12 +3442,12 @@ interface PMPI_Ineighbor_allgather
 
 subroutine PMPI_Ineighbor_allgather(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: comm
@@ -3462,12 +3462,12 @@ interface MPI_Ineighbor_allgatherv
 
 subroutine MPI_Ineighbor_allgatherv(sendbuf, sendcount, sendtype, recvbuf, recvcounts, &
         displs, recvtype, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: displs
   integer, intent(in) :: recvtype
@@ -3482,12 +3482,12 @@ interface PMPI_Ineighbor_allgatherv
 
 subroutine PMPI_Ineighbor_allgatherv(sendbuf, sendcount, sendtype, recvbuf, recvcounts, &
         displs, recvtype, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: displs
   integer, intent(in) :: recvtype
@@ -3503,12 +3503,12 @@ interface MPI_Ineighbor_alltoall
 
 subroutine MPI_Ineighbor_alltoall(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: comm
@@ -3522,12 +3522,12 @@ interface PMPI_Ineighbor_alltoall
 
 subroutine PMPI_Ineighbor_alltoall(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: comm
@@ -3542,13 +3542,13 @@ interface MPI_Ineighbor_alltoallv
 
 subroutine MPI_Ineighbor_alltoallv(sendbuf, sendcounts, sdispls, sendtype, recvbuf, &
         recvcounts, rdispls, recvtype, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer, dimension(*), intent(in) :: sdispls
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: rdispls
   integer, intent(in) :: recvtype
@@ -3563,13 +3563,13 @@ interface PMPI_Ineighbor_alltoallv
 
 subroutine PMPI_Ineighbor_alltoallv(sendbuf, sendcounts, sdispls, sendtype, recvbuf, &
         recvcounts, rdispls, recvtype, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer, dimension(*), intent(in) :: sdispls
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: rdispls
   integer, intent(in) :: recvtype
@@ -3586,13 +3586,13 @@ interface MPI_Ineighbor_alltoallw
 subroutine MPI_Ineighbor_alltoallw(sendbuf, sendcounts, sdispls, sendtypes, recvbuf, &
         recvcounts, rdispls, recvtypes, comm, request, ierror)
   include 'mpif-config.h'
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer(kind=MPI_ADDRESS_KIND), dimension(*), intent(in) :: sdispls
   integer, dimension(*), intent(in) :: sendtypes
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer(kind=MPI_ADDRESS_KIND), dimension(*), intent(in) :: rdispls
   integer, dimension(*), intent(in) :: recvtypes
@@ -3608,13 +3608,13 @@ interface PMPI_Ineighbor_alltoallw
 subroutine PMPI_Ineighbor_alltoallw(sendbuf, sendcounts, sdispls, sendtypes, recvbuf, &
         recvcounts, rdispls, recvtypes, comm, request, ierror)
   include 'mpif-config.h'
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer(kind=MPI_ADDRESS_KIND), dimension(*), intent(in) :: sdispls
   integer, dimension(*), intent(in) :: sendtypes
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer(kind=MPI_ADDRESS_KIND), dimension(*), intent(in) :: rdispls
   integer, dimension(*), intent(in) :: recvtypes
@@ -3973,8 +3973,8 @@ interface MPI_Irecv
 
 subroutine MPI_Irecv(buf, count, datatype, source, tag, &
         comm, request, ierror)
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: source
@@ -3990,8 +3990,8 @@ interface PMPI_Irecv
 
 subroutine PMPI_Irecv(buf, count, datatype, source, tag, &
         comm, request, ierror)
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: source
@@ -4008,10 +4008,10 @@ interface MPI_Ireduce
 
 subroutine MPI_Ireduce(sendbuf, recvbuf, count, datatype, op, &
         root, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -4027,10 +4027,10 @@ interface PMPI_Ireduce
 
 subroutine PMPI_Ireduce(sendbuf, recvbuf, count, datatype, op, &
         root, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -4047,10 +4047,10 @@ interface MPI_Ireduce_scatter
 
 subroutine MPI_Ireduce_scatter(sendbuf, recvbuf, recvcounts, datatype, op, &
         comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -4065,10 +4065,10 @@ interface PMPI_Ireduce_scatter
 
 subroutine PMPI_Ireduce_scatter(sendbuf, recvbuf, recvcounts, datatype, op, &
         comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -4084,10 +4084,10 @@ interface MPI_Ireduce_scatter_block
 
 subroutine MPI_Ireduce_scatter_block(sendbuf, recvbuf, recvcount, datatype, op, &
         comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -4102,10 +4102,10 @@ interface PMPI_Ireduce_scatter_block
 
 subroutine PMPI_Ireduce_scatter_block(sendbuf, recvbuf, recvcount, datatype, op, &
         comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -4121,8 +4121,8 @@ interface MPI_Irsend
 
 subroutine MPI_Irsend(buf, count, datatype, dest, tag, &
         comm, request, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -4138,8 +4138,8 @@ interface PMPI_Irsend
 
 subroutine PMPI_Irsend(buf, count, datatype, dest, tag, &
         comm, request, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -4175,10 +4175,10 @@ interface MPI_Iscan
 
 subroutine MPI_Iscan(sendbuf, recvbuf, count, datatype, op, &
         comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -4193,10 +4193,10 @@ interface PMPI_Iscan
 
 subroutine PMPI_Iscan(sendbuf, recvbuf, count, datatype, op, &
         comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -4212,12 +4212,12 @@ interface MPI_Iscatter
 
 subroutine MPI_Iscatter(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, root, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: root
@@ -4232,12 +4232,12 @@ interface PMPI_Iscatter
 
 subroutine PMPI_Iscatter(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, root, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: root
@@ -4253,13 +4253,13 @@ interface MPI_Iscatterv
 
 subroutine MPI_Iscatterv(sendbuf, sendcounts, displs, sendtype, recvbuf, &
         recvcount, recvtype, root, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer, dimension(*), intent(in) :: displs
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: root
@@ -4274,13 +4274,13 @@ interface PMPI_Iscatterv
 
 subroutine PMPI_Iscatterv(sendbuf, sendcounts, displs, sendtype, recvbuf, &
         recvcount, recvtype, root, comm, request, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer, dimension(*), intent(in) :: displs
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: root
@@ -4296,8 +4296,8 @@ interface MPI_Isend
 
 subroutine MPI_Isend(buf, count, datatype, dest, tag, &
         comm, request, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -4313,8 +4313,8 @@ interface PMPI_Isend
 
 subroutine PMPI_Isend(buf, count, datatype, dest, tag, &
         comm, request, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -4331,8 +4331,8 @@ interface MPI_Issend
 
 subroutine MPI_Issend(buf, count, datatype, dest, tag, &
         comm, request, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -4348,8 +4348,8 @@ interface PMPI_Issend
 
 subroutine PMPI_Issend(buf, count, datatype, dest, tag, &
         comm, request, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -4418,8 +4418,8 @@ interface MPI_Mrecv
 
 subroutine MPI_Mrecv(buf, count, datatype, message, status, ierror)
   include 'mpif-config.h'
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(inout) :: message
@@ -4433,8 +4433,8 @@ interface PMPI_Mrecv
 
 subroutine PMPI_Mrecv(buf, count, datatype, message, status, ierror)
   include 'mpif-config.h'
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(inout) :: message
@@ -4449,12 +4449,12 @@ interface MPI_Neighbor_allgather
 
 subroutine MPI_Neighbor_allgather(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: comm
@@ -4467,12 +4467,12 @@ interface PMPI_Neighbor_allgather
 
 subroutine PMPI_Neighbor_allgather(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: comm
@@ -4486,12 +4486,12 @@ interface MPI_Neighbor_allgatherv
 
 subroutine MPI_Neighbor_allgatherv(sendbuf, sendcount, sendtype, recvbuf, recvcounts, &
         displs, recvtype, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: displs
   integer, intent(in) :: recvtype
@@ -4505,12 +4505,12 @@ interface PMPI_Neighbor_allgatherv
 
 subroutine PMPI_Neighbor_allgatherv(sendbuf, sendcount, sendtype, recvbuf, recvcounts, &
         displs, recvtype, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: displs
   integer, intent(in) :: recvtype
@@ -4525,12 +4525,12 @@ interface MPI_Neighbor_alltoall
 
 subroutine MPI_Neighbor_alltoall(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: comm
@@ -4543,12 +4543,12 @@ interface PMPI_Neighbor_alltoall
 
 subroutine PMPI_Neighbor_alltoall(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: comm
@@ -4562,13 +4562,13 @@ interface MPI_Neighbor_alltoallv
 
 subroutine MPI_Neighbor_alltoallv(sendbuf, sendcounts, sdispls, sendtype, recvbuf, &
         recvcounts, rdispls, recvtype, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer, dimension(*), intent(in) :: sdispls
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: rdispls
   integer, intent(in) :: recvtype
@@ -4582,13 +4582,13 @@ interface PMPI_Neighbor_alltoallv
 
 subroutine PMPI_Neighbor_alltoallv(sendbuf, sendcounts, sdispls, sendtype, recvbuf, &
         recvcounts, rdispls, recvtype, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer, dimension(*), intent(in) :: sdispls
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, dimension(*), intent(in) :: rdispls
   integer, intent(in) :: recvtype
@@ -4604,13 +4604,13 @@ interface MPI_Neighbor_alltoallw
 subroutine MPI_Neighbor_alltoallw(sendbuf, sendcounts, sdispls, sendtypes, recvbuf, &
         recvcounts, rdispls, recvtypes, comm, ierror)
   include 'mpif-config.h'
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer(kind=MPI_ADDRESS_KIND), dimension(*), intent(in) :: sdispls
   integer, dimension(*), intent(in) :: sendtypes
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer(kind=MPI_ADDRESS_KIND), dimension(*), intent(in) :: rdispls
   integer, dimension(*), intent(in) :: recvtypes
@@ -4625,13 +4625,13 @@ interface PMPI_Neighbor_alltoallw
 subroutine PMPI_Neighbor_alltoallw(sendbuf, sendcounts, sdispls, sendtypes, recvbuf, &
         recvcounts, rdispls, recvtypes, comm, ierror)
   include 'mpif-config.h'
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer(kind=MPI_ADDRESS_KIND), dimension(*), intent(in) :: sdispls
   integer, dimension(*), intent(in) :: sendtypes
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer(kind=MPI_ADDRESS_KIND), dimension(*), intent(in) :: rdispls
   integer, dimension(*), intent(in) :: recvtypes
@@ -4730,12 +4730,12 @@ interface MPI_Pack
 
 subroutine MPI_Pack(inbuf, incount, datatype, outbuf, outsize, &
         position, comm, ierror)
-   inbuf
-  , intent(in) :: inbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: inbuf
+  type(*), dimension(*), intent(in) :: inbuf
   integer, intent(in) :: incount
   integer, intent(in) :: datatype
-   outbuf
-   :: outbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: outbuf
+  type(*), dimension(*) :: outbuf
   integer, intent(in) :: outsize
   integer, intent(inout) :: position
   integer, intent(in) :: comm
@@ -4748,12 +4748,12 @@ interface PMPI_Pack
 
 subroutine PMPI_Pack(inbuf, incount, datatype, outbuf, outsize, &
         position, comm, ierror)
-   inbuf
-  , intent(in) :: inbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: inbuf
+  type(*), dimension(*), intent(in) :: inbuf
   integer, intent(in) :: incount
   integer, intent(in) :: datatype
-   outbuf
-   :: outbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: outbuf
+  type(*), dimension(*) :: outbuf
   integer, intent(in) :: outsize
   integer, intent(inout) :: position
   integer, intent(in) :: comm
@@ -4769,12 +4769,12 @@ subroutine MPI_Pack_external(datarep, inbuf, incount, datatype, outbuf, &
         outsize, position, ierror)
   include 'mpif-config.h'
   character(len=*), intent(in) :: datarep
-   inbuf
-  , intent(in) :: inbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: inbuf
+  type(*), dimension(*), intent(in) :: inbuf
   integer, intent(in) :: incount
   integer, intent(in) :: datatype
-   outbuf
-   :: outbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: outbuf
+  type(*), dimension(*) :: outbuf
   integer(kind=MPI_ADDRESS_KIND), intent(in) :: outsize
   integer(kind=MPI_ADDRESS_KIND), intent(inout) :: position
   integer, intent(out) :: ierror
@@ -4788,12 +4788,12 @@ subroutine PMPI_Pack_external(datarep, inbuf, incount, datatype, outbuf, &
         outsize, position, ierror)
   include 'mpif-config.h'
   character(len=*), intent(in) :: datarep
-   inbuf
-  , intent(in) :: inbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: inbuf
+  type(*), dimension(*), intent(in) :: inbuf
   integer, intent(in) :: incount
   integer, intent(in) :: datatype
-   outbuf
-   :: outbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: outbuf
+  type(*), dimension(*) :: outbuf
   integer(kind=MPI_ADDRESS_KIND), intent(in) :: outsize
   integer(kind=MPI_ADDRESS_KIND), intent(inout) :: position
   integer, intent(out) :: ierror
@@ -4928,8 +4928,8 @@ interface MPI_Put
 subroutine MPI_Put(origin_addr, origin_count, origin_datatype, target_rank, target_disp, &
         target_count, target_datatype, win, ierror)
   include 'mpif-config.h'
-   origin_addr
-  , intent(in) :: origin_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr
+  type(*), dimension(*), intent(in) :: origin_addr
   integer, intent(in) :: origin_count
   integer, intent(in) :: origin_datatype
   integer, intent(in) :: target_rank
@@ -4947,8 +4947,8 @@ interface PMPI_Put
 subroutine PMPI_Put(origin_addr, origin_count, origin_datatype, target_rank, target_disp, &
         target_count, target_datatype, win, ierror)
   include 'mpif-config.h'
-   origin_addr
-  , intent(in) :: origin_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr
+  type(*), dimension(*), intent(in) :: origin_addr
   integer, intent(in) :: origin_count
   integer, intent(in) :: origin_datatype
   integer, intent(in) :: target_rank
@@ -4987,8 +4987,8 @@ subroutine MPI_Raccumulate(origin_addr, origin_count, origin_datatype,&
                            target_rank, target_disp, target_count, &
                            target_datatype, op, win, request, ierror)
   include 'mpif-config.h'
-   origin_addr
-  , intent(in) :: origin_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr
+  type(*), dimension(*), intent(in) :: origin_addr
   integer, intent(in) :: origin_count
   integer, intent(in) :: origin_datatype
   integer, intent(in) :: target_rank
@@ -5009,8 +5009,8 @@ subroutine PMPI_Raccumulate(origin_addr, origin_count, origin_datatype,&
                             target_rank, target_disp, target_count, &
                             target_datatype, op, win, request, ierror)
   include 'mpif-config.h'
-   origin_addr
-  , intent(in) :: origin_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr
+  type(*), dimension(*), intent(in) :: origin_addr
   integer, intent(in) :: origin_count
   integer, intent(in) :: origin_datatype
   integer, intent(in) :: target_rank
@@ -5031,8 +5031,8 @@ interface MPI_Recv
 subroutine MPI_Recv(buf, count, datatype, source, tag, &
         comm, status, ierror)
   include 'mpif-config.h'
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: source
@@ -5049,8 +5049,8 @@ interface PMPI_Recv
 subroutine PMPI_Recv(buf, count, datatype, source, tag, &
         comm, status, ierror)
   include 'mpif-config.h'
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: source
@@ -5067,8 +5067,8 @@ interface MPI_Recv_init
 
 subroutine MPI_Recv_init(buf, count, datatype, source, tag, &
         comm, request, ierror)
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: source
@@ -5084,8 +5084,8 @@ interface PMPI_Recv_init
 
 subroutine PMPI_Recv_init(buf, count, datatype, source, tag, &
         comm, request, ierror)
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: source
@@ -5102,10 +5102,10 @@ interface MPI_Reduce
 
 subroutine MPI_Reduce(sendbuf, recvbuf, count, datatype, op, &
         root, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -5120,10 +5120,10 @@ interface PMPI_Reduce
 
 subroutine PMPI_Reduce(sendbuf, recvbuf, count, datatype, op, &
         root, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -5139,10 +5139,10 @@ interface MPI_Reduce_local
 
 subroutine MPI_Reduce_local(inbuf, inout, count, datatype, op, &
         ierror)
-   inbuf
-  , intent(in) :: inbuf
-   inout
-   :: inout
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: inbuf
+  type(*), dimension(*), intent(in) :: inbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: inout
+  type(*), dimension(*) :: inout
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -5155,10 +5155,10 @@ interface PMPI_Reduce_local
 
 subroutine PMPI_Reduce_local(inbuf, inout, count, datatype, op, &
         ierror)
-   inbuf
-  , intent(in) :: inbuf
-   inout
-   :: inout
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: inbuf
+  type(*), dimension(*), intent(in) :: inbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: inout
+  type(*), dimension(*) :: inout
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -5172,10 +5172,10 @@ interface MPI_Reduce_scatter
 
 subroutine MPI_Reduce_scatter(sendbuf, recvbuf, recvcounts, datatype, op, &
         comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -5189,10 +5189,10 @@ interface PMPI_Reduce_scatter
 
 subroutine PMPI_Reduce_scatter(sendbuf, recvbuf, recvcounts, datatype, op, &
         comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, dimension(*), intent(in) :: recvcounts
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -5207,10 +5207,10 @@ interface MPI_Reduce_scatter_block
 
 subroutine MPI_Reduce_scatter_block(sendbuf, recvbuf, recvcount, datatype, op, &
         comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -5224,10 +5224,10 @@ interface PMPI_Reduce_scatter_block
 
 subroutine PMPI_Reduce_scatter_block(sendbuf, recvbuf, recvcount, datatype, op, &
         comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -5319,8 +5319,8 @@ subroutine MPI_Rget(origin_addr, origin_count, origin_datatype, &
                     target_rank, target_disp, target_count, &
                     target_datatype, win, request, ierror)
   include 'mpif-config.h'
-   origin_addr
-   :: origin_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr
+  type(*), dimension(*) :: origin_addr
   integer, intent(in) :: origin_count
   integer, intent(in) :: origin_datatype
   integer, intent(in) :: target_rank
@@ -5340,8 +5340,8 @@ subroutine PMPI_Rget(origin_addr, origin_count, origin_datatype, &
                     target_rank, target_disp, target_count, &
                     target_datatype, win, request, ierror)
   include 'mpif-config.h'
-   origin_addr
-   :: origin_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr
+  type(*), dimension(*) :: origin_addr
   integer, intent(in) :: origin_count
   integer, intent(in) :: origin_datatype
   integer, intent(in) :: target_rank
@@ -5363,12 +5363,12 @@ subroutine MPI_Rget_accumulate(origin_addr, origin_count, origin_datatype,&
                                target_rank, target_disp, target_count, &
                                target_datatype, op, win, request, ierror)
   include 'mpif-config.h'
-   origin_addr
-  , intent(in) :: origin_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr
+  type(*), dimension(*), intent(in) :: origin_addr
   integer, intent(in) :: origin_count
   integer, intent(in) :: origin_datatype
-   result_addr
-   :: result_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: result_addr
+  type(*), dimension(*) :: result_addr
   integer, intent(in) :: result_count
   integer, intent(in) :: result_datatype
   integer, intent(in) :: target_rank
@@ -5390,12 +5390,12 @@ subroutine PMPI_Rget_accumulate(origin_addr, origin_count, origin_datatype,&
                                 target_rank, target_disp, target_count, &
                                 target_datatype, op, win, request, ierror)
   include 'mpif-config.h'
-   origin_addr
-  , intent(in) :: origin_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr
+  type(*), dimension(*), intent(in) :: origin_addr
   integer, intent(in) :: origin_count
   integer, intent(in) :: origin_datatype
-   result_addr
-   :: result_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: result_addr
+  type(*), dimension(*) :: result_addr
   integer, intent(in) :: result_count
   integer, intent(in) :: result_datatype
   integer, intent(in) :: target_rank
@@ -5417,8 +5417,8 @@ subroutine MPI_Rput(origin_addr, origin_count, origin_datatype, &
                     target_rank, target_disp, target_count, &
                     target_datatype, win, request, ierror)
   include 'mpif-config.h'
-   origin_addr
-  , intent(in) :: origin_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr
+  type(*), dimension(*), intent(in) :: origin_addr
   integer, intent(in) :: origin_count
   integer, intent(in) :: origin_datatype
   integer, intent(in) :: target_rank
@@ -5438,8 +5438,8 @@ subroutine PMPI_Rput(origin_addr, origin_count, origin_datatype, &
                     target_rank, target_disp, target_count, &
                     target_datatype, win, request, ierror)
   include 'mpif-config.h'
-   origin_addr
-  , intent(in) :: origin_addr
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: origin_addr
+  type(*), dimension(*), intent(in) :: origin_addr
   integer, intent(in) :: origin_count
   integer, intent(in) :: origin_datatype
   integer, intent(in) :: target_rank
@@ -5458,8 +5458,8 @@ interface MPI_Rsend
 
 subroutine MPI_Rsend(ibuf, count, datatype, dest, tag, &
         comm, ierror)
-   ibuf
-  , intent(in) :: ibuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: ibuf
+  type(*), dimension(*), intent(in) :: ibuf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -5474,8 +5474,8 @@ interface PMPI_Rsend
 
 subroutine PMPI_Rsend(ibuf, count, datatype, dest, tag, &
         comm, ierror)
-   ibuf
-  , intent(in) :: ibuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: ibuf
+  type(*), dimension(*), intent(in) :: ibuf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -5491,8 +5491,8 @@ interface MPI_Rsend_init
 
 subroutine MPI_Rsend_init(buf, count, datatype, dest, tag, &
         comm, request, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -5508,8 +5508,8 @@ interface PMPI_Rsend_init
 
 subroutine PMPI_Rsend_init(buf, count, datatype, dest, tag, &
         comm, request, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -5526,10 +5526,10 @@ interface MPI_Scan
 
 subroutine MPI_Scan(sendbuf, recvbuf, count, datatype, op, &
         comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -5543,10 +5543,10 @@ interface PMPI_Scan
 
 subroutine PMPI_Scan(sendbuf, recvbuf, count, datatype, op, &
         comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: op
@@ -5561,12 +5561,12 @@ interface MPI_Scatter
 
 subroutine MPI_Scatter(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, root, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: root
@@ -5580,12 +5580,12 @@ interface PMPI_Scatter
 
 subroutine PMPI_Scatter(sendbuf, sendcount, sendtype, recvbuf, recvcount, &
         recvtype, root, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: root
@@ -5600,13 +5600,13 @@ interface MPI_Scatterv
 
 subroutine MPI_Scatterv(sendbuf, sendcounts, displs, sendtype, recvbuf, &
         recvcount, recvtype, root, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer, dimension(*), intent(in) :: displs
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: root
@@ -5620,13 +5620,13 @@ interface PMPI_Scatterv
 
 subroutine PMPI_Scatterv(sendbuf, sendcounts, displs, sendtype, recvbuf, &
         recvcount, recvtype, root, comm, ierror)
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, dimension(*), intent(in) :: sendcounts
   integer, dimension(*), intent(in) :: displs
   integer, intent(in) :: sendtype
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: root
@@ -5641,8 +5641,8 @@ interface MPI_Send
 
 subroutine MPI_Send(buf, count, datatype, dest, tag, &
         comm, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -5657,8 +5657,8 @@ interface PMPI_Send
 
 subroutine PMPI_Send(buf, count, datatype, dest, tag, &
         comm, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -5674,8 +5674,8 @@ interface MPI_Send_init
 
 subroutine MPI_Send_init(buf, count, datatype, dest, tag, &
         comm, request, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -5691,8 +5691,8 @@ interface PMPI_Send_init
 
 subroutine PMPI_Send_init(buf, count, datatype, dest, tag, &
         comm, request, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -5710,14 +5710,14 @@ interface MPI_Sendrecv
 subroutine MPI_Sendrecv(sendbuf, sendcount, sendtype, dest, sendtag, &
         recvbuf, recvcount, recvtype, source, recvtag, comm, status, ierror)
   include 'mpif-config.h'
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
   integer, intent(in) :: dest
   integer, intent(in) :: sendtag
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: source
@@ -5734,14 +5734,14 @@ interface PMPI_Sendrecv
 subroutine PMPI_Sendrecv(sendbuf, sendcount, sendtype, dest, sendtag, &
         recvbuf, recvcount, recvtype, source, recvtag, comm, status, ierror)
   include 'mpif-config.h'
-   sendbuf
-  , intent(in) :: sendbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: sendbuf
+  type(*), dimension(*), intent(in) :: sendbuf
   integer, intent(in) :: sendcount
   integer, intent(in) :: sendtype
   integer, intent(in) :: dest
   integer, intent(in) :: sendtag
-   recvbuf
-   :: recvbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: recvbuf
+  type(*), dimension(*) :: recvbuf
   integer, intent(in) :: recvcount
   integer, intent(in) :: recvtype
   integer, intent(in) :: source
@@ -5759,8 +5759,8 @@ interface MPI_Sendrecv_replace
 subroutine MPI_Sendrecv_replace(buf, count, datatype, dest, sendtag, &
         source, recvtag, comm, status, ierror)
   include 'mpif-config.h'
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -5779,8 +5779,8 @@ interface PMPI_Sendrecv_replace
 subroutine PMPI_Sendrecv_replace(buf, count, datatype, dest, sendtag, &
         source, recvtag, comm, status, ierror)
   include 'mpif-config.h'
-   buf
-   :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -5799,8 +5799,8 @@ interface MPI_Ssend
 
 subroutine MPI_Ssend(buf, count, datatype, dest, tag, &
         comm, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -5815,8 +5815,8 @@ interface PMPI_Ssend
 
 subroutine PMPI_Ssend(buf, count, datatype, dest, tag, &
         comm, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -5832,8 +5832,8 @@ interface MPI_Ssend_init
 
 subroutine MPI_Ssend_init(buf, count, datatype, dest, tag, &
         comm, request, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -5849,8 +5849,8 @@ interface PMPI_Ssend_init
 
 subroutine PMPI_Ssend_init(buf, count, datatype, dest, tag, &
         comm, request, ierror)
-   buf
-  , intent(in) :: buf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: buf
+  type(*), dimension(*), intent(in) :: buf
   integer, intent(in) :: count
   integer, intent(in) :: datatype
   integer, intent(in) :: dest
@@ -6991,12 +6991,12 @@ interface MPI_Unpack
 
 subroutine MPI_Unpack(inbuf, insize, position, outbuf, outcount, &
         datatype, comm, ierror)
-   inbuf
-  , intent(in) :: inbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: inbuf
+  type(*), dimension(*), intent(in) :: inbuf
   integer, intent(in) :: insize
   integer, intent(inout) :: position
-   outbuf
-   :: outbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: outbuf
+  type(*), dimension(*) :: outbuf
   integer, intent(in) :: outcount
   integer, intent(in) :: datatype
   integer, intent(in) :: comm
@@ -7009,12 +7009,12 @@ interface PMPI_Unpack
 
 subroutine PMPI_Unpack(inbuf, insize, position, outbuf, outcount, &
         datatype, comm, ierror)
-   inbuf
-  , intent(in) :: inbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: inbuf
+  type(*), dimension(*), intent(in) :: inbuf
   integer, intent(in) :: insize
   integer, intent(inout) :: position
-   outbuf
-   :: outbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: outbuf
+  type(*), dimension(*) :: outbuf
   integer, intent(in) :: outcount
   integer, intent(in) :: datatype
   integer, intent(in) :: comm
@@ -7030,12 +7030,12 @@ subroutine MPI_Unpack_external(datarep, inbuf, insize, position, outbuf, &
         outcount, datatype, ierror)
   include 'mpif-config.h'
   character(len=*), intent(in) :: datarep
-   inbuf
-  , intent(in) :: inbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: inbuf
+  type(*), dimension(*), intent(in) :: inbuf
   integer(kind=MPI_ADDRESS_KIND), intent(in) :: insize
   integer(kind=MPI_ADDRESS_KIND), intent(inout) :: position
-   outbuf
-   :: outbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: outbuf
+  type(*), dimension(*) :: outbuf
   integer, intent(in) :: outcount
   integer, intent(in) :: datatype
   integer, intent(out) :: ierror
@@ -7049,12 +7049,12 @@ subroutine PMPI_Unpack_external(datarep, inbuf, insize, position, outbuf, &
         outcount, datatype, ierror)
   include 'mpif-config.h'
   character(len=*), intent(in) :: datarep
-   inbuf
-  , intent(in) :: inbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: inbuf
+  type(*), dimension(*), intent(in) :: inbuf
   integer(kind=MPI_ADDRESS_KIND), intent(in) :: insize
   integer(kind=MPI_ADDRESS_KIND), intent(inout) :: position
-   outbuf
-   :: outbuf
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: outbuf
+  type(*), dimension(*) :: outbuf
   integer, intent(in) :: outcount
   integer, intent(in) :: datatype
   integer, intent(out) :: ierror
@@ -7298,8 +7298,8 @@ interface MPI_Win_attach
 
 subroutine MPI_Win_attach(win, base, size, ierror)
   include 'mpif-config.h'
-   base
-  , intent(in) :: base
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: base
+  type(*), dimension(*), intent(in) :: base
   integer(kind=MPI_ADDRESS_KIND), intent(in) :: size
   integer, intent(in) :: win
   integer, intent(out) :: ierror
@@ -7311,8 +7311,8 @@ interface PMPI_Win_attach
 
 subroutine PMPI_Win_attach(win, base, size, ierror)
   include 'mpif-config.h'
-   base
-  , intent(in) :: base
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: base
+  type(*), dimension(*), intent(in) :: base
   integer(kind=MPI_ADDRESS_KIND), intent(in) :: size
   integer, intent(in) :: win
   integer, intent(out) :: ierror
@@ -7366,8 +7366,8 @@ interface MPI_Win_create
 subroutine MPI_Win_create(base, size, disp_unit, info, comm, &
         win, ierror)
   include 'mpif-config.h'
-   base
-  , intent(in) :: base
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: base
+  type(*), dimension(*), intent(in) :: base
   integer(kind=MPI_ADDRESS_KIND), intent(in) :: size
   integer, intent(in) :: disp_unit
   integer, intent(in) :: info
@@ -7383,8 +7383,8 @@ interface PMPI_Win_create
 subroutine PMPI_Win_create(base, size, disp_unit, info, comm, &
         win, ierror)
   include 'mpif-config.h'
-   base
-  , intent(in) :: base
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: base
+  type(*), dimension(*), intent(in) :: base
   integer(kind=MPI_ADDRESS_KIND), intent(in) :: size
   integer, intent(in) :: disp_unit
   integer, intent(in) :: info
@@ -7496,8 +7496,8 @@ interface MPI_Win_detach
 
 subroutine MPI_Win_detach(win, base, ierror)
   include 'mpif-config.h'
-   base
-  , intent(in) :: base
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: base
+  type(*), dimension(*), intent(in) :: base
   integer, intent(in) :: win
   integer, intent(out) :: ierror
 end subroutine MPI_Win_detach
@@ -7508,8 +7508,8 @@ interface PMPI_Win_detach
 
 subroutine PMPI_Win_detach(win, base, ierror)
   include 'mpif-config.h'
-   base
-  , intent(in) :: base
+  !GCC$ ATTRIBUTES NO_ARG_CHECK :: base
+  type(*), dimension(*), intent(in) :: base
   integer, intent(in) :: win
   integer, intent(out) :: ierror
 end subroutine PMPI_Win_detach

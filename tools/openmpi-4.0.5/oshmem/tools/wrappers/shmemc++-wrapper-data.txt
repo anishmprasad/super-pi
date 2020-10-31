@@ -29,7 +29,7 @@ linker_flags=
 # etc. are pulled in implicitly) because we intend SHMEM/MPI
 # applications to only use the SHMEM and MPI APIs.
 libs=-loshmem -lmpi
-libs_static=-loshmem -lmpi -lopen-rte -lopen-pal -lm  -lz
+libs_static=-loshmem -lmpi -lopen-rte -lopen-pal -lhwloc -levent_core -levent_pthreads  -lz
 dyn_lib_file=liboshmem.dylib
 static_lib_file=liboshmem.a
 required_file=

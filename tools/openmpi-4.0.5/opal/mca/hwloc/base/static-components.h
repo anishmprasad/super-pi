@@ -5,10 +5,10 @@
 extern "C" {
 #endif
 
-extern const mca_base_component_t mca_hwloc_hwloc201_component;
+extern const mca_base_component_t mca_hwloc_external_component;
 
 const mca_base_component_t *mca_hwloc_base_static_components[] = {
-  &mca_hwloc_hwloc201_component, 
+  &mca_hwloc_external_component, 
   NULL
 };
 
