@@ -4,7 +4,7 @@ A Pi based super-powered cluster computer ( Distributed system )
 
 # Prerequisite
 
-- 3 x RPI 4 Model B 8GB
+- 3 x RPI 4 Model B 8GB with Heat Sink
 - 3 x Samsung Evo plus
 - 3 x Type C Cable
 - 1 x Network Switch
@@ -47,22 +47,46 @@ A Pi based super-powered cluster computer ( Distributed system )
 
 - https://superuser.com/questions/185678/connect-to-linux-by-name-rather-than-ip
 
+- https://www.open-mpi.org/doc/v4.0/man1/mpic++.1.php
+
+- https://medium.com/@glmdev/building-a-raspberry-pi-cluster-784f0df9afbd
+
 # Sleep ubuntu
 
 - https://askubuntu.com/questions/47311/how-do-i-disable-my-system-from-going-to-sleep
 
-- sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+- `sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target`
 
 # Steps
 
-- ssh-keygen -R 192.168.0.16
-- ssh ubuntu@192.168.0.16
-- vim /Users/{username / ghost}/.ssh/known_hosts
+- `ssh-keygen -R 192.168.0.16`
+- `ssh ubuntu@192.168.0.16`
+- `vim /Users/{username / ghost}/.ssh/known_hosts`
 
 # Utils
 
-- arp -a // to get all ip address in the network
-https://www.nagafm.com/2020/07/02/how-to-create-ssh-alias-in-linux/
+- `arp -a` // to get all ip address in the network
+- `htop` // An interactive system-monitor process-viewer and process-manage
+- `nmap -sn 192.168.1.1/12` // for scan all ports 1 - 12 range
+- https://www.nagafm.com/2020/07/02/how-to-create-ssh-alias-in-linux/
+
+# Steps
+
+## Machine 1 ( 01 )
+
+- sudo apt-get install gfortran
+- cd tools && tar -xzf openmpi-4.0.5.tar.gz && cd openmpi-4.0.5 && ./configure
+- sudo apt install ntpdate -y
+
+## Machine 2 ( 02 )
+
+- sudo apt-get install gfortran
+- cd tools && tar -xzf openmpi-4.0.5.tar.gz && cd openmpi-4.0.5 && ./configure
+
+## Machine 3 ( 03 )
+
+- sudo apt-get install gfortran
+- cd tools && tar -xzf openmpi-4.0.5.tar.gz && cd openmpi-4.0.5 && ./configure
 
 # Licence
 
