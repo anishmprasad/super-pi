@@ -49,6 +49,8 @@ A Pi based super-powered cluster computer ( Distributed system )
 
 - https://www.open-mpi.org/doc/v4.0/man1/mpic++.1.php
 
+- https://medium.com/@glmdev/building-a-raspberry-pi-cluster-784f0df9afbd
+
 # Sleep ubuntu
 
 - https://askubuntu.com/questions/47311/how-do-i-disable-my-system-from-going-to-sleep
