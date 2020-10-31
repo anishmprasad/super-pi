@@ -74,6 +74,7 @@ A Pi based super-powered cluster computer ( Distributed system )
 
 - sudo apt-get install gfortran
 - cd tools && tar -xzf openmpi-4.0.5.tar.gz && cd openmpi-4.0.5 && ./configure
+- sudo apt install ntpdate -y
 
 ## Machine 2 ( 02 )
 
