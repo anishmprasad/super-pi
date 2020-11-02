@@ -51,6 +51,8 @@ A Pi based super-powered cluster computer ( Distributed system )
 
 - https://medium.com/@glmdev/building-a-raspberry-pi-cluster-784f0df9afbd
 
+- https://www.nagafm.com/2020/07/02/how-to-create-ssh-alias-in-linux/
+
 # Sleep ubuntu
 
 - https://askubuntu.com/questions/47311/how-do-i-disable-my-system-from-going-to-sleep
@@ -68,7 +70,6 @@ A Pi based super-powered cluster computer ( Distributed system )
 - `arp -a` // to get all ip address in the network
 - `htop` // An interactive system-monitor process-viewer and process-manage
 - `nmap -sn 192.168.1.1/12` // for scan all ports 1 - 12 range
-- https://www.nagafm.com/2020/07/02/how-to-create-ssh-alias-in-linux/
 
 # Steps
 
