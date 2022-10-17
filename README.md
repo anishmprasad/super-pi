@@ -25,6 +25,8 @@ A Pi based super-powered cluster computer ( Distributed system )
 
 - https://www.geeksforgeeks.org/election-algorithm-and-distributed-processing/
 
+- https://www.ukessays.com/essays/information-technology/comparisons-with-the-bully-algorithm-information-technology-essay.php
+
 # Reference
 
 - https://magpi.raspberrypi.org/articles/build-a-raspberry-pi-cluster-computer
