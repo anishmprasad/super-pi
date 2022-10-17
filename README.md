@@ -23,6 +23,8 @@ A Pi based super-powered cluster computer ( Distributed system )
 
 - https://www.meccanismocomplesso.org/en/clusters-and-parallel-programming-with-mpi-and-raspberry-pi/
 
+- https://www.geeksforgeeks.org/election-algorithm-and-distributed-processing/
+
 # Reference
 
 - https://magpi.raspberrypi.org/articles/build-a-raspberry-pi-cluster-computer
