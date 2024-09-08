@@ -84,6 +84,11 @@ A Pi based super-powered cluster computer ( Distributed system )
 - sudo systemctl restart NetworkManager // restart
 - nmcli connection show --active // network status
 
+- Deco Reserved IP
+- 192.168.68.71 (RPI 1)
+- 192.168.68.72 (RPI 2)
+- 192.168.68.69 (RPI 3)
+
 # Steps
 
 ## Machine 1 ( 01 )
