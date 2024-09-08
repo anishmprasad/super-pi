@@ -74,6 +74,7 @@ A Pi based super-powered cluster computer ( Distributed system )
 - `arp -a` // to get all ip address in the network
 - `htop` // An interactive system-monitor process-viewer and process-manage
 - `nmap -sn 192.168.1.1/12` // for scan all ports 1 - 12 range
+- `key : anishmprasad`
 
 # Steps
 
