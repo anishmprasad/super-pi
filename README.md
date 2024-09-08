@@ -76,6 +76,14 @@ A Pi based super-powered cluster computer ( Distributed system )
 - `nmap -sn 192.168.1.1/12` // for scan all ports 1 - 12 range
 - `key : anishmprasad`
 
+# WIFI Connection
+
+- nmcli dev wifi list // show available network
+- nmcli dev wifi connect "<SSID>" password "<password>" // connect wifi
+- nmcli connection modify "<SSID>" connection.autoconnect yes // autoconnect
+- sudo systemctl restart NetworkManager // restart
+- nmcli connection show --active // network status
+
 # Steps
 
 ## Machine 1 ( 01 )
