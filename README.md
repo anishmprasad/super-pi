@@ -85,8 +85,8 @@ A Pi based super-powered cluster computer ( Distributed system )
 - nmcli connection show --active // network status
 
 - Deco Reserved IP
-- 192.168.68.71 (RPI 1)
-- 192.168.68.72 (RPI 2)
+- 192.168.68.58 (RPI 1)
+- 192.168.68.71 (RPI 2)
 - 192.168.68.69 (RPI 3)
 
 # Steps
