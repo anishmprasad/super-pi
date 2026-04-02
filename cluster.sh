@@ -1,67 +1,23 @@
 #!/bin/bash
 
-echo "🚀 Starting FINAL AUTO CLUSTER (STABLE)..."
+echo "🚀 Setting up FINAL CLUSTER (Production Stable)..."
 
 USER_HOME=$(eval echo ~$USER)
 
 # =========================
-# INSTALL BASE
+# INSTALL PACKAGES
 # =========================
 sudo apt update -y
-sudo apt install -y unzip curl python3-venv python3-pip redis-server avahi-daemon avahi-utils
+sudo apt install -y curl unzip python3-venv python3-pip redis-server
 
 # =========================
-# FIX NSS (mDNS RESOLUTION)
-# =========================
-sudo sed -i 's/^hosts:.*/hosts: files mdns4_minimal dns mdns4/' /etc/nsswitch.conf
-
-# =========================
-# AVAHI CONFIG (FORCE IPv4)
-# =========================
-sudo sed -i 's/^#allow-interfaces=.*/allow-interfaces=eth0/' /etc/avahi/avahi-daemon.conf
-sudo sed -i 's/^use-ipv6=.*/use-ipv6=no/' /etc/avahi/avahi-daemon.conf
-
-sudo systemctl enable avahi-daemon
-sudo systemctl restart avahi-daemon
-
-# =========================
-# AUTO HOSTNAME
-# =========================
-RAND=$(date +%s)
-HOSTNAME="superpi-$RAND"
-sudo hostnamectl set-hostname $HOSTNAME
-
-echo "📡 Hostname: $HOSTNAME.local"
-
-sleep 5
-
-# =========================
-# CREATE mDNS SERVICE
-# =========================
-sudo mkdir -p /etc/avahi/services
-
-cat <<EOF | sudo tee /etc/avahi/services/superpi.service
-<?xml version="1.0" standalone='no'?>
-<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
-
-<service-group>
-  <name>superpi-node</name>
-
-  <service>
-    <type>_superpi._tcp</type>
-    <port>8301</port>
-  </service>
-
-</service-group>
-EOF
-
-sudo systemctl restart avahi-daemon
-
-# =========================
-# GET IPv4
+# GET LOCAL IP + SUBNET
 # =========================
 CURRENT_IP=$(hostname -I | awk '{print $1}')
-echo "Using IP: $CURRENT_IP"
+SUBNET=$(echo $CURRENT_IP | awk -F. '{print $1"."$2"."$3}')
+
+echo "IP: $CURRENT_IP"
+echo "Subnet: $SUBNET.0/24"
 
 # =========================
 # INSTALL CONSUL
@@ -74,13 +30,13 @@ sudo mv consul /usr/local/bin/
 rm consul_${CONSUL_VERSION}_linux_arm64.zip
 
 # =========================
-# CONSUL CONFIG (SAFE START)
+# CONSUL CONFIG
 # =========================
 sudo mkdir -p /etc/consul.d
 
 cat <<EOF | sudo tee /etc/consul.d/config.json
 {
-  "node_name": "$HOSTNAME",
+  "node_name": "node-$CURRENT_IP",
   "bind_addr": "$CURRENT_IP",
   "data_dir": "/tmp/consul",
   "server": true,
@@ -113,23 +69,26 @@ sudo systemctl restart consul
 sleep 3
 
 # =========================
-# AUTO JOIN LOOP (FIXED)
+# AUTO JOIN (SUBNET GOSSIP)
 # =========================
 cat <<EOF > $USER_HOME/auto-join.sh
 #!/bin/bash
 
+SUBNET="$SUBNET"
+SELF_IP="$CURRENT_IP"
+
 while true; do
-  NODES=\$(avahi-browse -rt _superpi._tcp | grep IPv4 | awk '{print \$NF}' | sed 's/.local//')
+  for i in {1..254}; do
+    IP="$SUBNET.\$i"
 
-  for node in \$NODES; do
-    IP=\$(getent ahostsv4 "\$node.local" | awk '{print \$1}' | head -n 1)
-
-    if [ ! -z "\$IP" ]; then
-      consul join \$IP >/dev/null 2>&1
+    if [[ "\$IP" == "\$SELF_IP" ]]; then
+      continue
     fi
+
+    ping -c 1 -W 1 \$IP >/dev/null 2>&1 && consul join \$IP >/dev/null 2>&1
   done
 
-  sleep 10
+  sleep 30
 done
 EOF
 
@@ -161,17 +120,18 @@ sudo systemctl start consul-auto-join
 # =========================
 python3 -m venv $USER_HOME/cluster-env
 source $USER_HOME/cluster-env/bin/activate
+
 pip install celery redis requests
 
 # =========================
-# REDIS
+# REDIS SETUP
 # =========================
 sudo sed -i "s/^bind .*/bind 0.0.0.0/" /etc/redis/redis.conf
 sudo systemctl restart redis-server
 sudo systemctl enable redis-server
 
 # =========================
-# REGISTER REDIS
+# REGISTER REDIS IN CONSUL
 # =========================
 cat <<EOF | sudo tee /etc/consul.d/redis.json
 {
@@ -189,12 +149,12 @@ EOF
 sudo systemctl restart consul
 
 # =========================
-# WORKER
+# WORKER (DISTRIBUTED ENGINE)
 # =========================
 cat <<EOF > $USER_HOME/worker.py
 import requests
 import random
-from celery import Celery
+from celery import Celery, group
 
 def get_redis():
     try:
@@ -212,14 +172,19 @@ broker = get_redis()
 
 app = Celery('cluster', broker=broker, backend=broker)
 
-app.conf.update(
-    task_acks_late=True,
-    worker_prefetch_multiplier=1
-)
+@app.task
+def square(x):
+    return x * x
 
-@app.task(bind=True, autoretry_for=(Exception,), retry_backoff=5)
-def work(self, x):
-    return x * 2
+@app.task
+def sum_results(results):
+    return sum(results)
+
+@app.task
+def distributed_compute(n):
+    tasks = group(square.s(i) for i in range(n))
+    result = tasks.apply_async()
+    return sum_results.delay(result.get())
 EOF
 
 # =========================
@@ -246,7 +211,10 @@ sudo systemctl enable celery-worker
 sudo systemctl restart celery-worker
 
 echo ""
-echo "🔥 FINAL CLUSTER READY (AUTO + STABLE)"
+echo "🔥 CLUSTER READY!"
 echo ""
-echo "Wait 20 seconds, then run:"
+echo "Wait 30 seconds, then:"
 echo "consul members"
+echo ""
+echo "Test distributed compute:"
+echo "python3 -c \"from worker import distributed_compute; print(distributed_compute.delay(20).get())\""
