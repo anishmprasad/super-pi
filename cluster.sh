@@ -1,23 +1,23 @@
 #!/bin/bash
 
-echo "🚀 Starting STABLE AUTO CLUSTER..."
+echo "🚀 Starting FINAL STABLE AUTO CLUSTER..."
 
 USER_HOME=$(eval echo ~$USER)
 
 # =========================
-# INSTALL BASE
+# INSTALL
 # =========================
 sudo apt update -y
 sudo apt install -y unzip curl python3-venv python3-pip redis-server avahi-daemon avahi-utils
 
 # =========================
-# START AVAHI
+# AVAHI
 # =========================
 sudo systemctl enable avahi-daemon
 sudo systemctl restart avahi-daemon
 
 # =========================
-# AUTO HOSTNAME
+# HOSTNAME
 # =========================
 RAND=$(date +%s)
 HOSTNAME="superpi-$RAND"
@@ -26,6 +26,12 @@ sudo hostnamectl set-hostname $HOSTNAME
 echo "📡 Hostname: $HOSTNAME.local"
 
 sleep 5
+
+# =========================
+# GET IPv4 ONLY
+# =========================
+CURRENT_IP=$(hostname -I | awk '{print $1}')
+echo "Using IP: $CURRENT_IP"
 
 # =========================
 # INSTALL CONSUL
@@ -38,11 +44,9 @@ sudo mv consul /usr/local/bin/
 rm consul_${CONSUL_VERSION}_linux_arm64.zip
 
 # =========================
-# CONSUL SAFE CONFIG (NO CRASH)
+# CONSUL CONFIG (SAFE)
 # =========================
 sudo mkdir -p /etc/consul.d
-
-CURRENT_IP=$(hostname -I | awk '{print $1}')
 
 cat <<EOF | sudo tee /etc/consul.d/config.json
 {
@@ -76,8 +80,10 @@ sudo systemctl daemon-reload
 sudo systemctl enable consul
 sudo systemctl restart consul
 
+sleep 3
+
 # =========================
-# AUTO JOIN SERVICE (KEY FIX)
+# AUTO JOIN (IPv4 ONLY FIX)
 # =========================
 cat <<EOF > $USER_HOME/auto-join.sh
 #!/bin/bash
@@ -86,7 +92,8 @@ while true; do
   NODES=\$(avahi-browse -rt _workstation._tcp | grep superpi | awk '{print \$NF}' | sed 's/.local//')
 
   for node in \$NODES; do
-    IP=\$(getent hosts "\$node.local" | awk '{print \$1}')
+    IP=\$(getent ahostsv4 "\$node.local" | awk '{print \$1}' | head -n 1)
+
     if [ ! -z "\$IP" ]; then
       consul join \$IP >/dev/null 2>&1
     fi
@@ -99,7 +106,7 @@ EOF
 chmod +x $USER_HOME/auto-join.sh
 
 # =========================
-# SYSTEMD FOR AUTO-JOIN
+# AUTO JOIN SERVICE
 # =========================
 cat <<EOF | sudo tee /etc/systemd/system/consul-auto-join.service
 [Unit]
@@ -127,14 +134,14 @@ source $USER_HOME/cluster-env/bin/activate
 pip install celery redis requests
 
 # =========================
-# REDIS SETUP
+# REDIS
 # =========================
 sudo sed -i "s/^bind .*/bind 0.0.0.0/" /etc/redis/redis.conf
 sudo systemctl restart redis-server
 sudo systemctl enable redis-server
 
 # =========================
-# REGISTER REDIS IN CONSUL
+# REGISTER REDIS
 # =========================
 cat <<EOF | sudo tee /etc/consul.d/redis.json
 {
@@ -209,11 +216,7 @@ sudo systemctl enable celery-worker
 sudo systemctl restart celery-worker
 
 echo ""
-echo "🔥 FULL AUTO CLUSTER READY!"
+echo "🔥 FINAL CLUSTER READY (IPv4 FIXED)"
 echo ""
-echo "Check cluster:"
+echo "Check:"
 echo "consul members"
-echo ""
-echo "Test:"
-echo "source $USER_HOME/cluster-env/bin/activate"
-echo "python3 -c \"from worker import work; print(work.delay(5).get())\""
