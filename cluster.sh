@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🚀 Setting up ULTIMATE self-healing cluster..."
+echo "🚀 Starting FULL AUTO CLUSTER..."
 
 USER_HOME=$(eval echo ~$USER)
 
@@ -8,17 +8,61 @@ USER_HOME=$(eval echo ~$USER)
 # INSTALL BASE
 # =========================
 sudo apt update -y
-sudo apt install -y unzip curl python3-venv python3-pip redis-server
+sudo apt install -y unzip curl python3-venv python3-pip redis-server avahi-daemon avahi-utils
+
+# =========================
+# START AVAHI
+# =========================
+sudo systemctl enable avahi-daemon
+sudo systemctl start avahi-daemon
+
+# =========================
+# AUTO HOSTNAME
+# =========================
+RAND=$(date +%s)
+HOSTNAME="superpi-$RAND"
+
+sudo hostnamectl set-hostname $HOSTNAME
+
+echo "📡 Hostname set: $HOSTNAME.local"
+
+sleep 5
+
+# =========================
+# DISCOVER NODES (superpi-*)
+# =========================
+echo "🔍 Discovering nodes..."
+
+NODES=($(avahi-browse -rt _workstation._tcp | grep superpi | awk '{print $NF}' | sed 's/.local//'))
+
+# include self if missing
+if [[ ! " ${NODES[@]} " =~ "$HOSTNAME" ]]; then
+  NODES+=("$HOSTNAME")
+fi
+
+echo "Found nodes: ${NODES[@]}"
+
+# =========================
+# RESOLVE TO IPS
+# =========================
+IPS=()
+
+for node in "${NODES[@]}"; do
+  IP=$(getent hosts "$node.local" | awk '{print $1}')
+  [ ! -z "$IP" ] && IPS+=("$IP")
+done
+
+echo "Resolved IPs: ${IPS[@]}"
+
+CURRENT_IP=$(hostname -I | awk '{print $1}')
 
 # =========================
 # INSTALL CONSUL
 # =========================
-echo "🧠 Installing Consul..."
-
 CONSUL_VERSION="1.17.0"
 
-curl -LO https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_arm64.zip
-unzip consul_${CONSUL_VERSION}_linux_arm64.zip
+curl -sLO https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_arm64.zip
+unzip -o consul_${CONSUL_VERSION}_linux_arm64.zip
 sudo mv consul /usr/local/bin/
 rm consul_${CONSUL_VERSION}_linux_arm64.zip
 
@@ -27,18 +71,20 @@ rm consul_${CONSUL_VERSION}_linux_arm64.zip
 # =========================
 sudo mkdir -p /etc/consul.d
 
-CURRENT_IP=$(hostname -I | awk '{print $1}')
+JOIN_CONFIG=""
+for ip in "${IPS[@]}"; do
+  JOIN_CONFIG+="\"$ip\","
+done
 
 cat <<EOF | sudo tee /etc/consul.d/config.json
 {
-  "node_name": "$(hostname)",
+  "node_name": "$HOSTNAME",
   "bind_addr": "$CURRENT_IP",
   "data_dir": "/tmp/consul",
   "server": true,
   "bootstrap_expect": 3,
-  "retry_join": ["provider=lan"],
-  "client_addr": "0.0.0.0",
-  "ui": false
+  "retry_join": [${JOIN_CONFIG%,}],
+  "client_addr": "0.0.0.0"
 }
 EOF
 
@@ -58,23 +104,19 @@ Restart=always
 WantedBy=multi-user.target
 EOF
 
-# =========================
-# START CONSUL
-# =========================
 sudo systemctl daemon-reload
 sudo systemctl enable consul
-sudo systemctl start consul
+sudo systemctl restart consul
 
 # =========================
 # PYTHON ENV
 # =========================
 python3 -m venv $USER_HOME/cluster-env
 source $USER_HOME/cluster-env/bin/activate
-
-pip install celery redis
+pip install celery redis requests
 
 # =========================
-# REDIS CONFIG (LOCAL ONLY)
+# REDIS SETUP
 # =========================
 sudo sed -i "s/^bind .*/bind 0.0.0.0/" /etc/redis/redis.conf
 sudo systemctl restart redis-server
@@ -99,26 +141,28 @@ EOF
 sudo systemctl restart consul
 
 # =========================
-# WORKER (DYNAMIC REDIS DISCOVERY)
+# BUILD WORKER
 # =========================
 cat <<EOF > $USER_HOME/worker.py
 import requests
+import random
 from celery import Celery
 
 def get_redis():
     try:
-        r = requests.get("http://127.0.0.1:8500/v1/catalog/service/redis")
-        data = r.json()
-        if data:
-            ip = data[0]["ServiceAddress"] or data[0]["Address"]
+        r = requests.get("http://127.0.0.1:8500/v1/health/service/redis?passing=true")
+        nodes = r.json()
+        if nodes:
+            node = random.choice(nodes)
+            ip = node["Service"]["Address"] or node["Node"]["Address"]
             return f"redis://{ip}:6379/0"
     except:
         pass
     return "redis://127.0.0.1:6379/0"
 
-broker_url = get_redis()
+broker = get_redis()
 
-app = Celery('cluster', broker=broker_url, backend=broker_url)
+app = Celery('cluster', broker=broker, backend=broker)
 
 app.conf.update(
     task_acks_late=True,
@@ -149,15 +193,14 @@ Restart=always
 WantedBy=multi-user.target
 EOF
 
-# =========================
-# ENABLE EVERYTHING
-# =========================
 sudo systemctl daemon-reload
 sudo systemctl enable celery-worker
-sudo systemctl start celery-worker
+sudo systemctl restart celery-worker
 
 echo ""
-echo "🔥 ULTIMATE CLUSTER READY!"
+echo "🔥 FULL AUTO CLUSTER READY!"
+echo "Node: $HOSTNAME"
+echo "Cluster nodes: ${IPS[@]}"
 echo ""
 echo "Test:"
 echo "source $USER_HOME/cluster-env/bin/activate"
