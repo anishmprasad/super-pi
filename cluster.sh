@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🚀 Starting FULL AUTO CLUSTER..."
+echo "🚀 Starting STABLE AUTO CLUSTER..."
 
 USER_HOME=$(eval echo ~$USER)
 
@@ -14,47 +14,18 @@ sudo apt install -y unzip curl python3-venv python3-pip redis-server avahi-daemo
 # START AVAHI
 # =========================
 sudo systemctl enable avahi-daemon
-sudo systemctl start avahi-daemon
+sudo systemctl restart avahi-daemon
 
 # =========================
 # AUTO HOSTNAME
 # =========================
 RAND=$(date +%s)
 HOSTNAME="superpi-$RAND"
-
 sudo hostnamectl set-hostname $HOSTNAME
 
-echo "📡 Hostname set: $HOSTNAME.local"
+echo "📡 Hostname: $HOSTNAME.local"
 
 sleep 5
-
-# =========================
-# DISCOVER NODES (superpi-*)
-# =========================
-echo "🔍 Discovering nodes..."
-
-NODES=($(avahi-browse -rt _workstation._tcp | grep superpi | awk '{print $NF}' | sed 's/.local//'))
-
-# include self if missing
-if [[ ! " ${NODES[@]} " =~ "$HOSTNAME" ]]; then
-  NODES+=("$HOSTNAME")
-fi
-
-echo "Found nodes: ${NODES[@]}"
-
-# =========================
-# RESOLVE TO IPS
-# =========================
-IPS=()
-
-for node in "${NODES[@]}"; do
-  IP=$(getent hosts "$node.local" | awk '{print $1}')
-  [ ! -z "$IP" ] && IPS+=("$IP")
-done
-
-echo "Resolved IPs: ${IPS[@]}"
-
-CURRENT_IP=$(hostname -I | awk '{print $1}')
 
 # =========================
 # INSTALL CONSUL
@@ -67,14 +38,11 @@ sudo mv consul /usr/local/bin/
 rm consul_${CONSUL_VERSION}_linux_arm64.zip
 
 # =========================
-# CONSUL CONFIG
+# CONSUL SAFE CONFIG (NO CRASH)
 # =========================
 sudo mkdir -p /etc/consul.d
 
-JOIN_CONFIG=""
-for ip in "${IPS[@]}"; do
-  JOIN_CONFIG+="\"$ip\","
-done
+CURRENT_IP=$(hostname -I | awk '{print $1}')
 
 cat <<EOF | sudo tee /etc/consul.d/config.json
 {
@@ -82,8 +50,8 @@ cat <<EOF | sudo tee /etc/consul.d/config.json
   "bind_addr": "$CURRENT_IP",
   "data_dir": "/tmp/consul",
   "server": true,
-  "bootstrap_expect": 3,
-  "retry_join": [${JOIN_CONFIG%,}],
+  "bootstrap_expect": 1,
+  "retry_join": ["127.0.0.1"],
   "client_addr": "0.0.0.0"
 }
 EOF
@@ -107,6 +75,49 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl enable consul
 sudo systemctl restart consul
+
+# =========================
+# AUTO JOIN SERVICE (KEY FIX)
+# =========================
+cat <<EOF > $USER_HOME/auto-join.sh
+#!/bin/bash
+
+while true; do
+  NODES=\$(avahi-browse -rt _workstation._tcp | grep superpi | awk '{print \$NF}' | sed 's/.local//')
+
+  for node in \$NODES; do
+    IP=\$(getent hosts "\$node.local" | awk '{print \$1}')
+    if [ ! -z "\$IP" ]; then
+      consul join \$IP >/dev/null 2>&1
+    fi
+  done
+
+  sleep 10
+done
+EOF
+
+chmod +x $USER_HOME/auto-join.sh
+
+# =========================
+# SYSTEMD FOR AUTO-JOIN
+# =========================
+cat <<EOF | sudo tee /etc/systemd/system/consul-auto-join.service
+[Unit]
+Description=Consul Auto Join
+After=consul.service
+
+[Service]
+User=$USER
+ExecStart=$USER_HOME/auto-join.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable consul-auto-join
+sudo systemctl start consul-auto-join
 
 # =========================
 # PYTHON ENV
@@ -141,7 +152,7 @@ EOF
 sudo systemctl restart consul
 
 # =========================
-# BUILD WORKER
+# WORKER
 # =========================
 cat <<EOF > $USER_HOME/worker.py
 import requests
@@ -199,8 +210,9 @@ sudo systemctl restart celery-worker
 
 echo ""
 echo "🔥 FULL AUTO CLUSTER READY!"
-echo "Node: $HOSTNAME"
-echo "Cluster nodes: ${IPS[@]}"
+echo ""
+echo "Check cluster:"
+echo "consul members"
 echo ""
 echo "Test:"
 echo "source $USER_HOME/cluster-env/bin/activate"
